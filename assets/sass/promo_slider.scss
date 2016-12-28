@@ -1,0 +1,17 @@
+.promo__tango {
+  height: 394px;
+  width: 325px;
+  background-image: url(../img/tango_pair.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: -10px 0 -10px;
+  z-index: 1001;
+  position: relative;
+}
+
+.promo {
+  background: #000 url(../img/promo_background.jpg) 53% 0;
+  .promo_row {
+    padding-left: 118px;
+  }
+}

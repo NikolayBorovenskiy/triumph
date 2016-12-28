@@ -1,0 +1,27 @@
+.footer {
+  background: #000 url(../img/footer_background.jpg) 50% 0;
+  background-repeat: no-repeat;
+  color: #b5b2b2;
+  font-size: 12px;
+  .footer_wrapper {
+    border-top: 1px solid #2f2e2e;
+    padding: 20px 10px 10px 43px;
+  }
+  .list{
+    list-style-type: none;
+  }
+  .footer__copywright{
+    float: left;
+  }
+  .footer__address{
+    float: right;
+  }
+  .address__phones, .address__address{
+    display: inline-block;
+  }
+  .address_ml32{
+    margin-left: 32px;
+  }
+}
+
+

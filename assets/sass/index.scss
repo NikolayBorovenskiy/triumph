@@ -1,0 +1,35 @@
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "header.scss";
+@import "promo_slider.scss";
+@import "sub_nav_bar.scss";
+@import "content";
+@import "main";
+@import "footer.scss";
+@import "responsive_colunm_bootstrap.scss";
+@import "fonts.scss";
+
+body {
+  margin: 0;
+  color: #fff;
+  font: 14px/1.455 Arial;
+  background: #000 url(../img/background.jpg) 50% 0 repeat-y;
+  background-size: contain;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: none;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+.wrapper {
+  flex-grow: 1;
+}
+
+.footer {
+  flex-grow: 0;
+}

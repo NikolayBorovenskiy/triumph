@@ -1,0 +1,246 @@
+{% load static account %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="57x57"
+          href="{% static 'images/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="{% static 'images/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="{% static 'images/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76"
+          href="{% static 'images/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="{% static 'images/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="{% static 'images/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="{% static 'images/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="{% static 'images/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="{% static 'images/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="{% static 'images/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96"
+          href="{% static 'images/favicon/favicon-96x96.png' %}">
+
+    <meta name="msapplication-TileImage"
+          content="{% static 'images/favicon/ms-icon-144x144.png' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>
+        {% block head_title %}Title{% endblock %}
+    </title>
+
+    {% if debug %}
+    <link rel="stylesheet" href="{% static 'build/bundle.css' %}?ver={% file_version 'build/bundle.css' %}"/>
+    <script type="text/javascript"
+            src="{% static 'build/bundle.js' %}?ver={% file_version 'build/bundle.js' %}"></script>
+    {% else %}
+    <link rel="stylesheet" href="{% static 'build/bundle.min.css' %}?ver={% file_version 'build/bundle.min.css' %}"/>
+    <script type="text/javascript"
+            src="{% static 'build/bundle.min.js' %}?ver={% file_version 'build/bundle.min.js' %}"></script>
+    {% endif %}
+
+    <!--[if lt IE 9]>
+    <script src="{% static 'vendor/html5shiv/dist/html5shiv.min.js' %}"></script>
+    <script src="{% static 'vendor/respond/dest/respond.min.js' %}"></script>
+    <![endif]-->
+    <!-- End JS -->
+</head>
+<body>
+<!-- Static navbar -->
+<div class="wrapper">
+    <header class="header">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-header__logo clearfix">
+                        <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" height="122" width="312" alt="Triumph" class="logo"></a>
+                    </div>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">О нас</a></li>
+                        <li class="active"><a href="#">Направления танца</a></li>
+                        <li><a href="#">Достижения</a></li>
+                        <li><a href="#">Расписание</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="header__motto">
+            <h3 class="fontsforweb_fontid_6771">С танцем по жизни!</h3>
+        </div>
+    </header>
+    <section class="promo">
+        <div class="container">
+            <div class="row promo_row">
+                <div class="col-md-6">
+                    <div class="promo__tango"></div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+
+            <!--<div id="gallery">
+           <div class="slide clearfix">
+               <div class="center-block">
+                   <div class="promo__image clock">
+                       <img src="images/img-clock.png" width="376" height="540" alt="">
+                   </div>
+                   <div class="promo__text">
+                       <strong class="promo__sub-title">Manage
+                           <mark>your time</mark>
+                           easily.</strong>
+                       <a href="" class="btn"><span>1Try it out for free</span></a>
+                   </div>
+               </div>
+           </div>
+       </div>-->
+        </div>
+    </section>
+    <div class="sub-navigation">
+        <div class="container">
+            <nav class="sub-navigation__nav sub-navigation__nav_up">
+                <ul class="nav">
+                    <li class="active"><a href="#">Бальные танцы</a></li>
+                    <li><a href="#">Hip-hop</a></li>
+                    <li><a href="#">Клубные танцы</a></li>
+                    <li><a href="#">Контемп</a></li>
+                    <li><a href="#">Стрейчинг</a></li>
+                    <li><a href="#">Сальса</a></li>
+                    <li><a href="#">Группы для детей</a></li>
+                    <li><a href="#">Постановка танца к торжеству</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <section class="main">
+        <div class="container">
+            <div class="row">
+                <div class="row-height">
+                    <div class="col-md-3 col-md-height col-md-top">
+                        <aside class="sidebar">
+                            <nav class="sidebar-nav">
+                                <ul class="sidebar-nav__list">
+                                    <li><a href=""><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Новости</a></li>
+                                    <li class="active"><a href=""><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Фотогалерея</a></li>
+                                    <li><a href=""><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Видео</a></li>
+                                    <li><a href=""><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Статьи</a></li>
+                                </ul>
+                            </nav>
+                            <div class="news-block news-block_indent">
+                                <div class="message">
+                                    <a href="#"><p>Изменение в расписании занятий группы для детей!</p></a>
+                                    <span class="message__data">21.06.2012</span>
+                                </div>
+                                <div class="message">
+                                    <a href="#"><p>Изменение в расписании занятий группы для детей!</p></a>
+                                    <span class="message__data">21.06.2012</span>
+                                </div>
+                                <div class="message">
+                                    <a href="#"><p>Изменение в расписании занятий группы для детей!</p></a>
+                                    <span class="message__data">21.06.2012</span>
+                                </div>
+                                <h5 class="all-message"><a href="#">Все новости</a></h5>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-md-9 col-md-top col-md-height">
+                        <div class="main_page inside-full-height">
+                            <div class="main_page__text">
+                                <p>
+                                    Танец у каждого из нас внутри, просто некоторые боятся признаться себе в этом. Кто-то танцует
+                                    с выключенным светом в закрытой комнате, кто-то на сцене, на улице. А кто-то танцует всю жизнь.
+                                    Танец – это искусство, скажет кто-то. Совокупность пластических движений, неотъемлемая часть
+                                    любого праздника, состояние души, способ самовыражения... и что-либо в этом духе. Продолжать
+                                    этот ряд можно бесконечно. Ответы могут быть самыми разнообразными. Наиболее
+                                    исчерпывающим будет следующий: «Для каждого это что-то свое. Для кого-то чистое и еле
+                                    ощутимое, для кого-то резкое и грязное, страстное и незабываемое, ритуальное и религиозное,
+                                    вспыльчивое и неутолимое... Это ветер, апельсиновое солнце, цунами, сумеречный свет, игра,
+                                    смысл, цель, жизнь...
+                                </p>
+                                <p>
+                                    «Танец — это жизнь! И теперь вторая часть поставленного вопроса становится сложней. А
+                                    именно: «Как ему научиться?» И напрашивается следующий: «А можно ли этому научиться?»
+                                </p>
+                                <p>
+                                    Клуб спортивного танца «Триумф» поможет раскрыться вашим талантам. У нас вы сможете
+                                    научиться владеть своим телом в совершенстве, выражать танцем свои эмоции, прочувствовав
+                                    движение каждой частичкой тела!
+                                </p>
+
+                            </div>
+                            <div class="main_page__decor"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--&lt;!&ndash; Main component for a primary marketing message or call to action &ndash;&gt;
+            <div class="jumbotron">
+                <h1>Navbar example</h1>
+                <p>This example is a quick exercise to illustrate how the default,
+                    static and fixed to top navbar work. It includes the responsive CSS
+                    and HTML, so it also adapts to your viewport and device.</p>
+                <p>To see the difference between static and fixed top navbars, just
+                    scroll.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="../../components/#navbar"
+                       role="button">View navbar docs &raquo;</a>
+                </p>
+            </div>-->
+        </div>
+    </section>
+
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="footer_wrapper">
+            <div class="footer__copywright">
+                <ul class="list">
+                    <li>2016 Клуб спортивного танца "Триумф"</li>
+                    <li>Design: <a href="#">GitaneGroup</a></li>
+                </ul>
+            </div>
+            <address class="footer__address">
+                <div class="address">
+                    <div class="address__phones">
+                        <ul class="list">
+                            <li>(093) 761-66-48</li>
+                            <li>(057) 761-66-48</li>
+                        </ul>
+                    </div>
+                    <div class="address__address address_ml32">
+                        <p>г. Харьков, <br>ул. Пушкинская, 79 </p>
+                    </div>
+                </div>
+            </address>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

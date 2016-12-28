@@ -1,0 +1,38 @@
+.sub-navigation {
+  //box-shadow: inset 0 0 0 1px #ebebeb;
+}
+
+.sub-navigation__nav_up{
+  margin-top: -40px;
+}
+
+.sub-navigation__nav {
+  position: relative;
+  z-index: 1002;
+  background-color: rgba(8, 8, 8, 0.75);
+  ul {
+    a {
+      padding: 10px 10px;
+      color: #c2c2c2;
+      text-align: center;
+    }
+    a:hover {
+      background-color: transparent;
+      color: #ffca3e;
+      background-color: rgba(39, 39, 39, 0.75);
+    }
+
+  }
+  li {
+    display: table-cell;
+
+    border-right: 1px solid #3a2c2c;
+    border-left: 1px solid #6b6a6a;
+  }
+  li:first-child {
+    border-left: none;
+  }
+  li:last-child {
+    border-right: none;
+  }
+}
