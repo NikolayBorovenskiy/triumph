@@ -7,19 +7,55 @@
     border-top: 1px solid #2f2e2e;
     padding: 20px 10px 10px 43px;
   }
-  .list{
+  .list {
     list-style-type: none;
+    padding: 0;
+
+
   }
-  .footer__copywright{
+  .footer__copywright {
     float: left;
+    position: relative;
+    &::before {
+      content: "\00A9";
+      position: absolute;
+      width: 15px;
+      height: 20px;
+      right: 100%;
+      z-index: 2;
+    }
   }
-  .footer__address{
+  .footer__address {
     float: right;
   }
-  .address__phones, .address__address{
+  .address__phones, .address__address {
     display: inline-block;
   }
-  .address_ml32{
+  .address__phones{
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      background: url(../img/tel.png) 0 0 no-repeat;
+      width: 15px;
+      height: 20px;
+      right: 110%;
+      z-index: 2;
+    }
+  }
+  .address__address{
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      background: url(../img/pointer.png) 0 0 no-repeat;
+      width: 15px;
+      height: 20px;
+      right: 110%;
+      z-index: 2;
+    }
+  }
+  .address_ml32 {
     margin-left: 32px;
   }
 }
