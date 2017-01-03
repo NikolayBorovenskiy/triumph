@@ -7,6 +7,7 @@ from django.conf import settings
 from django.core.urlresolvers import resolve
 from django import template
 
+from news.models import News
 
 register = template.Library()
 
@@ -43,10 +44,10 @@ def is_view(context, view_name=None, namespace=None, output='active', **kwargs):
             если текущий view имеет параметры, переданные в kwargs.
     """
     resolver_match = resolve(context['request'].path)
-
+    
     if namespace and namespace == resolver_match.namespace:
         return output
-
+    
     if view_name and resolver_match.url_name == view_name:
         if all(resolver_match.kwargs[k] == kwargs[k] for k in kwargs.keys()):
             return output
@@ -79,7 +80,7 @@ def chunked_by(it, n):
     Выведет: "0 1, 2 3, 4 5, 6 7, 8 9"
     """
     n = int(n)
-    return (it[i:i+n] for i in range(0, len(it), n))
+    return (it[i:i + n] for i in range(0, len(it), n))
 
 
 @register.filter
@@ -102,5 +103,10 @@ def make_agree_with_number(word, number):
         result = parsed_word.make_agree_with_number(int(number)).word
     except (TypeError, AttributeError, IndexError, ValueError):
         return word
-
+    
     return result
+
+
+@register.inclusion_tag('tags/news.html')
+def get_news_list():
+    return {'object_list': News.objects.all()[:5]}

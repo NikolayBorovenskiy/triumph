@@ -1,14 +1,47 @@
-<ul class="pagination">
-    {% for page in pages %}
-        <li {% if not page.label %}class="disabled"{% endif %}
-            {% if page.is_current %}class="active"{% endif %}>
-                <a href="{{ page.path }}">
-                    {% if page.label %}
-                        {{ page.label|safe }}
-                    {% else %}
-                        ...
-                    {% endif %}
-                </a>
-        </li>
-    {% endfor %}
-</ul>
+<!--<ul class="pagination">-->
+    <!--{% for page in pages %}-->
+    <!--<li {% if not page.label %}class="disabled" {% endif %}-->
+        <!--{% if page.is_current %}class="active" {% endif %}>-->
+        <!--<a href="{{ page.path }}">-->
+            <!--{% if page.label %}-->
+            <!--{{ page.label|safe }}-->
+            <!--{% else %}-->
+            <!--...-->
+            <!--{% endif %}-->
+        <!--</a>-->
+    <!--</li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->
+
+
+
+<!--<div class="pagination">-->
+    <!--<span class="step-links">-->
+        <!--{% if object_list.has_previous %}-->
+            <!--<a href="?page={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>-->
+        <!--{% endif %}-->
+
+        <!--<span class="current">-->
+            <!--Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.-->
+        <!--</span>-->
+
+        <!--{% if object_list.has_next %}-->
+            <!--<a href="?page={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>-->
+        <!--{% endif %}-->
+    <!--</span>-->
+<!--</div>-->
+
+
+<div class="row">
+    {% if object_list.paginator.num_pages > 1 %}
+    <nav class="pagination-custom">
+        <ul class="pagination  pagination-md">
+            <li class="{% if not object_list.has_previous %}disabled{% endif %}"><a href="{% if object_list.has_previous %}?page={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% endif %}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            {% for number in object_list.paginator.page_range %}
+            <li class="{% if object_list.number == forloop.counter %}active{% endif %}"><a href="?page={{ forloop.counter }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ forloop.counter }} <span class="sr-only">(current)</span></a></li>
+            {% endfor %}
+            <li class="{% if not object_list.has_next %}disabled{% endif %}"><a href="{% if object_list.has_next %}?page={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% endif %}" aria-label="Previous"><span aria-hidden="true">&raquo;</span></a></li>
+        </ul>
+    </nav>
+    {% endif %}
+</div>

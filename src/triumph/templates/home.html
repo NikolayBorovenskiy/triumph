@@ -1,5 +1,72 @@
 {% extends "base.html" %}
 
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block styles %}
+<style>
+    .sub-navigation__nav_up {
+        margin-top: -40px!important;
+    }
+</style>
+{% endblock %}
+
+
+{% block promo %}
+<section class="promo">
+    <div class="container">
+        <div class="row promo_row">
+            <div class="col-md-6">
+                <div class="promo__tango"></div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+
+        <!--<div id="gallery">
+       <div class="slide clearfix">
+           <div class="center-block">
+               <div class="promo__image clock">
+                   <img src="images/img-clock.png" width="376" height="540" alt="">
+               </div>
+               <div class="promo__text">
+                   <strong class="promo__sub-title">Manage
+                       <mark>your time</mark>
+                       easily.</strong>
+                   <a href="" class="btn"><span>1Try it out for free</span></a>
+               </div>
+           </div>
+       </div>
+   </div>-->
+    </div>
+</section>
+{% endblock %}
+
+
 {% block content %}
-    <h1>Welcome!</h1>
+<div class="main_page inside-full-height">
+    <div class="main_page__text">
+        <p>
+            Танец у каждого из нас внутри, просто некоторые боятся признаться себе в этом. Кто-то танцует
+            с выключенным светом в закрытой комнате, кто-то на сцене, на улице. А кто-то танцует всю жизнь.
+            Танец – это искусство, скажет кто-то. Совокупность пластических движений, неотъемлемая часть
+            любого праздника, состояние души, способ самовыражения... и что-либо в этом духе. Продолжать
+            этот ряд можно бесконечно. Ответы могут быть самыми разнообразными. Наиболее
+            исчерпывающим будет следующий: «Для каждого это что-то свое. Для кого-то чистое и еле
+            ощутимое, для кого-то резкое и грязное, страстное и незабываемое, ритуальное и религиозное,
+            вспыльчивое и неутолимое... Это ветер, апельсиновое солнце, цунами, сумеречный свет, игра,
+            смысл, цель, жизнь...
+        </p>
+        <p>
+            «Танец — это жизнь! И теперь вторая часть поставленного вопроса становится сложней. А
+            именно: «Как ему научиться?» И напрашивается следующий: «А можно ли этому научиться?»
+        </p>
+        <p>
+            Клуб спортивного танца «Триумф» поможет раскрыться вашим талантам. У нас вы сможете
+            научиться владеть своим телом в совершенстве, выражать танцем свои эмоции, прочувствовав
+            движение каждой частичкой тела!
+        </p>
+    </div>
+    <div class="main_page__decor"></div>
+</div>
 {% endblock content %}

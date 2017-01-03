@@ -5,10 +5,10 @@ from django.db import models
 
 class DateTimeMixin(models.Model):
     date_created = models.DateTimeField(
-        'Дата создания', auto_now_add=True)
+        'Дата создания', auto_now_add=True, auto_now=False)
     date_updated = models.DateTimeField(
-        'Дата обновления', auto_now=True)
-
+        'Дата обновления', auto_now_add=False, auto_now=True)
+    
     class Meta:
         abstract = True
 
@@ -20,6 +20,6 @@ class MetaFieldsMixin(models.Model):
         'Тег <keywords>', blank=True, default='')
     meta_description = models.TextField(
         'Тег <description>', blank=True, default='')
-
+    
     class Meta:
         abstract = True

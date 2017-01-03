@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # project apps
     'core',
     'users',
+    'news',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -72,7 +73,7 @@ WSGI_APPLICATION = 'triumph.wsgi.application'
 
 LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 

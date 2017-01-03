@@ -2,8 +2,8 @@
   //box-shadow: inset 0 0 0 1px #ebebeb;
 }
 
-.sub-navigation__nav_up{
-  margin-top: -40px;
+.sub-navigation__nav_up {
+  margin-top: 0;
 }
 
 .sub-navigation__nav {
@@ -15,13 +15,12 @@
       padding: 10px 10px;
       color: #c2c2c2;
       text-align: center;
+      &:hover {
+        background-color: transparent;
+        color: #ffca3e;
+        background-color: rgba(39, 39, 39, 0.75);
+      }
     }
-    a:hover {
-      background-color: transparent;
-      color: #ffca3e;
-      background-color: rgba(39, 39, 39, 0.75);
-    }
-
   }
   li {
     display: table-cell;
