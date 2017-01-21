@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<div class="block-content__title block-content__title_indent">
+    <h2>Статьи и полезная информация</h2>
+</div>
+{% for obj in object_list %}
+<div class="row">
+    <div class="col-md-4">
+        {% if obj.cover_image %}
+        <img class="block-content__list-img img-responsive" src="{{ obj.cover_image.url }}" alt="...">
+        {% else %}
+        <p>no photo</p>
+        {% endif %}
+    </div>
+    <div class="col-md-8 reset-indents">
+        <div class="block-content__list-description">
+            <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+            <small>{{ obj.date_created|date:"d.m.Y" }}</small>
+            <p class="list-description__content">{{ obj.content | striptags | safe | truncatechars:330 }}</p>
+        </div>
+    </div>
+</div>
+<hr>
+{% endfor %}
+
+{% include "el_pagination/show_pages.html" %}
+{% endblock content %}

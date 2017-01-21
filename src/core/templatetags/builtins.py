@@ -109,4 +109,4 @@ def make_agree_with_number(word, number):
 
 @register.inclusion_tag('tags/news.html')
 def get_news_list():
-    return {'object_list': News.objects.all()[:5]}
+    return {'object_list': News.objects.all()[:4]}

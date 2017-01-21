@@ -24,6 +24,7 @@
     "babel-preset-stage-1": "latest",
     "babel-eslint": "latest",
     "babel-plugin-transform-runtime": "latest",
+    "bower-webpack-plugin": "latest",
     "browser-sync": "latest",
     "css-loader": "latest",
     "eslint": "latest",

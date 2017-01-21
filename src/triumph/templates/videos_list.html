@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load embed_video_tags %}
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<div class="block-content__title block-content__title_indent">
+    <h2>{{ title }}</h2>
+</div>
+<div class="gallery">
+    <div class="row gallery__row_indent">
+        {% for obj in object_list %}
+        <div class="col-md-4">
+            <div class="thumbnail__block">
+                {% video obj.video as video %}
+                <a href="{{ obj.get_absolute_url }}" class="thumbnail">
+                    <img src="{{ video.thumbnail }}" class="img-responsive"/>
+                </a>
+                {% endvideo %}
+                <a href="{{ obj.get_absolute_url }}" class="reference">
+                    <span>{{ obj.title }}</span>
+                </a><br>
+                <small>{{ obj.date_created|date:"d.m.Y" }}</small>
+            </div>
+        </div>
+        {%cycle "" "" "</div><div class='row gallery__row_indent'>" %}{% endfor %}
+    </div>
+</div>
+
+
+{% include "el_pagination/show_pages.html" %}
+{% endblock content %}

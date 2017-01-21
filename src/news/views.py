@@ -4,7 +4,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import News
 
 
-# Create your views here.
 def news_detail(request, slug=None):
     instance = get_object_or_404(News, slug=slug)
     context = {

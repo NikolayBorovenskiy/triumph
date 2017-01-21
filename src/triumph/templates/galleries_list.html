@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<div class="block-content__title block-content__title_indent">
+    <h2>{{ title }}</h2>
+</div>
+<div class="gallery">
+    <div class="row">
+    {% for obj in object_list %}
+        {% if obj.photo_set.all %}
+        <div class="col-md-4">
+            <div class="thumbnail__block">
+                <a href="{{ obj.get_absolute_url }}" class="thumbnail">
+                    <img class="block-content__list-img" src="{{ obj.get_cover_photo.image.url }}" alt="{{ obj.get_cover_photo.name }}">
+                </a>
+                <a href="{{ obj.get_absolute_url }}" class="reference">
+                    <h5 class="text-center">{{ obj.title }}</h5>
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    {%cycle "" "" "</div><div class='row'>" %}
+    {% endfor %}
+</div>
+</div>
+
+
+{% include "el_pagination/show_pages.html" %}
+{% endblock content %}

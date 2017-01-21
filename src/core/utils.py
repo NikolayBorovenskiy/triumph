@@ -4,6 +4,7 @@ import os
 from hashlib import md5
 
 import requests
+from unidecode import unidecode
 from django.conf import settings
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
@@ -12,11 +13,12 @@ from django.db.models import Model
 from django.db.models.fields.files import FieldFile
 from django.shortcuts import resolve_url
 from django.template.loader import render_to_string
+from django.utils.text import slugify
 
 
 def upload_to(directory=None):
     """Загрузить файл в директорию `directory` с хешированным именем."""
-
+    
     def uploader(instance, filename):
         ext = os.path.splitext(filename)[1]
         h = md5(filename.encode('utf-8')).hexdigest()
@@ -24,7 +26,7 @@ def upload_to(directory=None):
         if directory is not None:
             parts.insert(0, directory)
         return '/'.join(parts)
-
+    
     return uploader
 
 
@@ -68,21 +70,44 @@ def save_url_to_file_field(model, url, save_to=None, filename=None):
         save_file_from_url(gallery, '<url>', save_to='image')
         save_file_from_url(gallery.image, '<url>')
     """
-    assert isinstance(model, (FieldFile, Model)), '"model" argument should be a Model or FieldFile instance'
-
+    assert isinstance(model, (FieldFile,
+                              Model)), '"model" argument should be a Model or FieldFile instance'
+    
     if isinstance(model, FieldFile):
         field = model
     else:
-        assert isinstance(save_to, str), '"save_to" argument must be provided along with Model instance'
+        assert isinstance(save_to,
+                          str), '"save_to" argument must be provided along with Model instance'
         field = getattr(model, save_to)
-
+    
     r = requests.get(url)
-
+    
     if not filename:
         filename = url.split('/')[-1]
-
+    
     temp_file = NamedTemporaryFile(delete=True)
     temp_file.write(r.content)
     temp_file.flush()
-
+    
     field.save(filename, File(temp_file), save=True)
+
+
+def create_slug(sender, instance, new_slug=None):
+    slug = slugify(unidecode(instance.title))
+    if new_slug is not None:
+        slug = new_slug
+    qs = sender.objects.filter(slug=slug).order_by("-id")
+    exists = qs.exists()
+    if exists:
+        new_slug = "%s-%s" % (slug, qs.first().id)
+        return create_slug(sender, instance, new_slug=new_slug)
+    return slug
+
+
+def pre_save_post_receiver(sender, instance, *args, **kwargs):
+    if not instance.slug:
+        instance.slug = create_slug(sender, instance)
+
+
+def upload_location(instance, filename):
+    return "%s/%s" % (instance.id, filename)

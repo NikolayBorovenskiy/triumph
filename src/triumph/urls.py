@@ -22,6 +22,10 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^news/', include("news.urls", namespace='news')),
+    url(r'^galleries/', include("galleries.urls", namespace='galleries')),
+    url(r'^videos/', include("videos.urls", namespace='videos')),
+    url(r'^articles/', include("articles.urls", namespace='articles')),
+    url(r'^dance-styles/', include("styles.urls", namespace='styles')),
 ]
 
 if settings.DEBUG:

@@ -8,6 +8,7 @@
 @import "responsive_colunm_bootstrap.scss";
 @import "fonts.scss";
 @import "pagination.scss";
+@import "media.scss";
 
 body {
   margin: 0;
@@ -29,6 +30,11 @@ body {
 
 .wrapper {
   flex-grow: 1;
+}
+
+.reset-indents{
+  margin: 0;
+  padding: 0;
 }
 
 .footer {

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<div class="block-content__title block-content__title_indent">
+    <h2>{{ title }}</h2>
+</div>
+<div class="article-detail">
+    <div class="content">
+        {{ instance.content|safe }}
+    </div>
+</div>
+
+
+{% include "el_pagination/show_pages.html" %}
+{% endblock content %}

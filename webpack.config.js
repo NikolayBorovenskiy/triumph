@@ -1,3 +1,4 @@
+let BowerWebpackPlugin = require("bower-webpack-plugin");
 let webpack = require('webpack');
 let autoprefixer = require('autoprefixer');
 
@@ -37,15 +38,22 @@ let webpackConfig = {
                 test: /\.css$/,
                 loader: "style-loader!css-loader"
             },
-            { test: /jquery\.js$/, loader: 'expose?$' },
-            { test: /jquery\.js$/, loader: 'expose?jQuery' }
+            {test: /jquery\.js$/, loader: 'expose?$'},
+            {test: /jquery\.js$/, loader: 'expose?jQuery'}
         ],
         noParse: [
             new RegExp('.*vendor.*')
         ],
-        postcss: [ autoprefixer({ browsers: ['>1%'] }) ]
+        postcss: [autoprefixer({browsers: ['>1%']})]
     },
     plugins: [
+        new BowerWebpackPlugin({
+            modulesDirectories: ["bower_components"],
+            manifestFiles: "bower.json",
+            includes: /.*/,
+            excludes: [],
+            searchResolveModulesDirectories: true
+        }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",

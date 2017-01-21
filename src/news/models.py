@@ -1,16 +1,21 @@
 # coding: utf-8
-from unidecode import unidecode
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
-from django.utils.text import slugify
 
 from core.models import DateTimeMixin
+from core.utils import upload_location, pre_save_post_receiver, create_slug
 
 
-def upload_location(instance, filename):
-    return "%s/%s" % (instance.id, filename)
+class ExampleModel(models.Model):
+    content = RichTextUploadingField()
+
+
+class ExampleNonUploadModel(models.Model):
+    content = RichTextField()
 
 
 class News(DateTimeMixin):
@@ -22,6 +27,8 @@ class News(DateTimeMixin):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField(verbose_name=u'Контент', null=True, blank=True)
+    content1 = RichTextUploadingField()
+    content2 = RichTextField()
     slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
     
     def __unicode__(self):
@@ -36,23 +43,6 @@ class News(DateTimeMixin):
     class Meta:
         ordering = ["-date_created", "-date_updated"]
         verbose_name_plural = u"Новости"
-
-
-def create_slug(instance, new_slug=None):
-    slug = slugify(unidecode(instance.title))
-    if new_slug is not None:
-        slug = new_slug
-    qs = News.objects.filter(slug=slug).order_by("-id")
-    exists = qs.exists()
-    if exists:
-        new_slug = "%s-%s" % (slug, qs.first().id)
-        return create_slug(instance, new_slug=new_slug)
-    return slug
-
-
-def pre_save_post_receiver(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        instance.slug = create_slug(instance)
 
 
 pre_save.connect(pre_save_post_receiver, sender=News)

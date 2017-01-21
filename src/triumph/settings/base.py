@@ -10,7 +10,6 @@ import envvars as e
 
 from django.contrib.messages import constants as messages
 
-
 PROJECT_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 MANAGE_DIR = os.path.normpath(os.path.join(PROJECT_DIR, '..'))
 ROOT_DIR = os.path.normpath(os.path.join(MANAGE_DIR, '..'))
@@ -29,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-
+    
     # third-party apps
     'allauth',
     'allauth.account',
@@ -41,11 +40,17 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'django_cleanup',
     'rules.apps.AutodiscoverRulesConfig',
-
+    
     # project apps
     'core',
     'users',
     'news',
+    'galleries',
+    'embed_video',
+    'videos',
+    'vishap.contrib.apps.django.vishap',
+    'articles',
+    'styles',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -58,7 +63,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
@@ -100,11 +105,12 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
+            
             ),
             'libraries': {},
             'builtins': [
                 'rules.templatetags.rules',
-
+                
                 'core.templatetags.builtins',
                 'el_pagination.templatetags.el_pagination_tags',
             ],
@@ -277,12 +283,13 @@ CODEMIRROR_CONFIG = {'lineNumbers': True}
 # django-ckeditor
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = 'pillow'
-CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'vendor/jquery/dist/jquery.min.js')
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL,
+                                   'vendor/jquery/dist/jquery.min.js')
 CKEDITOR_RESTRICT_BY_USER = True
 
-#CKEDITOR_CONFIGS = {
+# CKEDITOR_CONFIGS = {
 #    'default': {}
-#}
+# }
 
 # celery
 # таймаут для задач - 1 минута
@@ -290,6 +297,13 @@ CELERYD_TASK_SOFT_TIME_LIMIT = 60
 BROKER_URL = e.get('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = e.get('CELERY_RESULT_BACKEND')
 
+YOUTUBE_AUTH_EMAIL = 'nikolay.borovenskiy@gmail.com'
+YOUTUBE_AUTH_PASSWORD = 'acmilan1899acmilan'
+YOUTUBE_DEVELOPER_KEY = 'AIzaSyBkCk8_I_bbp8CYbJYRY6OjFrmK7mN4ULI'
+YOUTUBE_CLIENT_ID = '759499740870-1i7naidv9h6getd9r6p210op9ih2evov.apps.googleusercontent.com'
+YOUTUBE_UPLOAD_REDIRECT_URL = '/youtube/videos/'
+
 # pymorphy
 import pymorphy2
+
 MORPH = pymorphy2.MorphAnalyzer()

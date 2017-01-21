@@ -27,6 +27,7 @@
   "dependencies": {
     "lodash": "~3.10.0",
     "jquery": "~2.1.4",
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "slick-carousel": "~1.6.0"
   }
 }

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load embed_video_tags %}
+
+{% block jquery %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="block-content__title block-content__title_indent">
+    <h2>{{ title }}</h2>
+</div>
+<!-- 16:9 aspect ratio -->
+
+        {{ instance.video.url }}
+<div class="embed-responsive embed-responsive-16by9">
+    {% video instance.video as my_video %}
+  {% video my_video "large" %}
+{% endvideo %}
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
