@@ -21,9 +21,13 @@
     text-decoration: underline;
     padding: 0 30px 0 0;
   }
-  .navbar-default .navbar-nav > li.active > a,
   .navbar-default .navbar-nav > li > a:hover {
     text-decoration: none;
+    background-color: transparent;
+  }
+  .navbar-default .navbar-nav > li.active > a{
+    text-decoration: underline;
+    color: white;
     background-color: transparent;
   }
   .navbar-header__logo {

@@ -1,0 +1,64 @@
+.dance-style {
+  & {
+    border: 1px solid #969696;
+    padding: 15px;
+    background: url(../img/background/dance-style.jpg) 0 0 no-repeat;
+    background-size: cover;
+    height: 235px;
+    transition: border 0.5s ease-out;
+  }
+  &:hover {
+    border: 1px solid #ffca3e;
+  }
+
+  .dance-style__image {
+    width: 152px;
+    float: left;
+  }
+  .dance-style__image_indent {
+    margin-right: 22px;
+  }
+  .dance-style__content {
+    h3 {
+      &:hover{
+        color: white;
+        text-decoration: none;
+      }
+      margin: 0 0 5px 0;
+      color: #ffca3e;
+      text-decoration: underline;
+    }
+  }
+}
+
+.dance-style_indent {
+  margin-bottom: 15px;
+}
+
+.dance-style_link {
+  color: #fff;
+  &:hover,
+  &:active{
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.dance-styles-detail {
+  h3 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: #ffca3e;
+  }
+  .dance-styles-detail__carousel {
+    background-color: #3f3f3f;
+    padding: 8px;
+  }
+  .dance-styles-detail__text {
+    line-height: 25px;
+  }
+  .slide__main-view {
+    height: 315px;
+    overflow: hidden;
+  }
+}

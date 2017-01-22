@@ -10,14 +10,6 @@ from core.models import DateTimeMixin
 from core.utils import upload_location, pre_save_post_receiver, create_slug
 
 
-class ExampleModel(models.Model):
-    content = RichTextUploadingField()
-
-
-class ExampleNonUploadModel(models.Model):
-    content = RichTextField()
-
-
 class News(DateTimeMixin):
     title = models.CharField(verbose_name=u'Заголовок', max_length=500)
     image = models.ImageField(upload_to=upload_location,

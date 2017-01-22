@@ -109,5 +109,23 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
         instance.slug = create_slug(sender, instance)
 
 
+def pre_save_photo_receiver(sender, instance, *args, **kwargs):
+    if not instance.name:
+        instance.name = create_name(sender, instance)
+
+
+def create_name(sender, instance, new_name=None):
+    filebase, extension = instance.image.name.split(".")
+    name = unidecode(filebase)
+    if new_name is not None:
+        name = new_name
+    qs = sender.objects.filter(name=name).order_by("-id")
+    exists = qs.exists()
+    if exists:
+        new_name = "%s-%s" % (name, qs.first().id)
+        return create_name(sender, instance, new_name=new_name)
+    return name
+
+
 def upload_location(instance, filename):
     return "%s/%s" % (instance.id, filename)

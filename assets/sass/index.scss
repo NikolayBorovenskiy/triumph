@@ -9,6 +9,7 @@
 @import "fonts.scss";
 @import "pagination.scss";
 @import "media.scss";
+@import "dance-styles.scss";
 
 body {
   margin: 0;
@@ -23,7 +24,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-
+*{
+  outline-style: none;
+}
 .container {
   max-width: 1000px;
 }

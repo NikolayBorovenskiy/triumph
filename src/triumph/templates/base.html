@@ -61,7 +61,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">О нас</a></li>
-                        <li class="active"><a href="#">Направления танца</a></li>
+                        <li class='{% is_view namespace="styles" %}'><a href="{% url 'styles:list' %}">Направления танца</a></li>
                         <li><a href="#">Достижения</a></li>
                         <li><a href="#">Расписание</a></li>
                         <li><a href="#">Контакты</a></li>
@@ -79,14 +79,14 @@
         <div class="container">
             <nav class="sub-navigation__nav sub-navigation__nav_up">
                 <ul class="nav">
-                    <li class="active"><a href="#">Бальные танцы</a></li>
-                    <li><a href="#">Hip-hop</a></li>
-                    <li><a href="#">Клубные танцы</a></li>
-                    <li><a href="#">Контемп</a></li>
-                    <li><a href="#">Стрейчинг</a></li>
-                    <li><a href="#">Сальса</a></li>
-                    <li><a href="#">Группы для детей</a></li>
-                    <li><a href="#">Постановка танца к торжеству</a></li>
+                    <li class='{% is_view view_name="detail" slug="balnye-tantsy" %}'><a href="{% url 'styles:detail' slug='balnye-tantsy' %}">Бальные танцы</a></li>
+                    <li class='{% is_view view_name="detail" slug="khip-khop" %}'><a href="{% url 'styles:detail' slug='khip-khop' %}">Hip-hop</a></li>
+                    <li class='{% is_view view_name="detail" slug="klubnye-tantsy" %}'><a href="{% url 'styles:detail' slug='klubnye-tantsy' %}">Клубные танцы</a></li>
+                    <li class='{% is_view view_name="detail" slug="kontemp" %}'><a href="{% url 'styles:detail' slug='kontemp' %}">Контемп</a></li>
+                    <li class='{% is_view view_name="detail" slug="streiching" %}'><a href="{% url 'styles:detail' slug='streiching' %}">Стрейчинг</a></li>
+                    <li class='{% is_view view_name="detail" slug="salsa" %}'><a href="{% url 'styles:detail' slug='salsa' %}">Сальса</a></li>
+                    <li class='{% is_view view_name="detail" slug="gruppy-dlia-detei" %}'><a href="{% url 'styles:detail' slug='gruppy-dlia-detei' %}">Группы для детей</a></li>
+                    <li class='{% is_view view_name="detail" slug="postanovka-tantsa-k-torzhestvu" %}'><a href="{% url 'styles:detail' slug='postanovka-tantsa-k-torzhestvu' %}">Постановка танца к торжеству</a></li>
                 </ul>
             </nav>
         </div>
@@ -95,7 +95,7 @@
         <div class="container">
             <div class="row">
                 <div class="row-height">
-                    <div class="col-md-3 col-md-height col-md-top">
+                    <div class="col-md-3 col-md-height col-md-top {% is_view namespace='styles' output='hide' %}">
                         <aside class="sidebar">
                             <nav class="sidebar-nav">
                                 <ul class="sidebar-nav__list">

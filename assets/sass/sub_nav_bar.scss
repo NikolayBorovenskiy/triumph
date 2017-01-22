@@ -23,6 +23,11 @@
     }
   }
   li {
+    &.active{
+      a {
+        color: #ffca3e;
+      }
+    }
     display: table-cell;
 
     border-right: 1px solid #3a2c2c;

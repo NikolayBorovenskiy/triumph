@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block jquery %}
+$('.slider-nav').slick({
+slidesToShow: 3,
+slidesToScroll: 1,
+dots: false,
+centerMode: true,
+focusOnSelect: true
+});
+
+function changeImageSource(src) {
+$("#main-view").attr("src", src)
+}
+$slider = $('.slider-nav');
+$slider.on( "click", function(event) {
+var elem = $(event.target);
+if (elem.hasClass('img-responsive')) {
+changeImageSource(elem.attr('src'));
+}
+return false;
+});
+{% endblock jquery %}
+
+{% block content %}
+<div class="dance-styles-detail">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="dance-styles-detail__carousel">
+                <div class="slide__main-view">
+                    <img id="main-view" src="{{ cover_photo.image.url }}">
+                </div>
+                <div class="slider-nav">
+                    {% for obj in instance.photo_set.all %}
+                    <div class="slide clearfix">
+                        <img class="img-responsive" src="{{ obj.image.url }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="dance-styles-detail__title ">
+                <h3 class="fontsforweb_fontid_6771">{{ title }}</h3>
+            </div>
+            <div class="dance-styles-detail__text">
+                {{ instance.content|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
