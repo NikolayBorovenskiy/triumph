@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{% static 'img/favicon/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Tenor+Sans&amp;subset=cyrillic" rel="stylesheet">
     <meta name="msapplication-TileImage"
           content="{% static 'images/favicon/ms-icon-144x144.png' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -23,8 +24,8 @@
     <link rel="stylesheet" href="{% static 'vendor/slick-carousel/slick/slick-theme.css' %}"/>
     <link href="http://vjs.zencdn.net/5.14.1/video-js.css" rel="stylesheet">
 
-      <!-- If you'd like to support IE8 -->
-      <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <!-- If you'd like to support IE8 -->
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <script type="text/javascript"
             src="{% static 'build/bundle.js' %}?ver={% file_version 'build/bundle.js' %}"></script>
     {% else %}
@@ -101,7 +102,7 @@
                                 <ul class="sidebar-nav__list">
                                     <li class='{% is_view namespace="news" %}'><a href="{% url 'news:list' %}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Новости</a></li>
                                     <li class='{% is_view namespace="galleries" %}'><a href="{% url 'galleries:list' %}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Фотогалерея</a></li>
-                                     <li class='{% is_view namespace="videos" %}'><a href="{% url 'videos:list' %}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Видео</a></li>
+                                    <li class='{% is_view namespace="videos" %}'><a href="{% url 'videos:list' %}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Видео</a></li>
                                     <li class='{% is_view namespace="articles" %}'><a href="{% url 'articles:list' %}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>Статьи</a></li>
                                 </ul>
                             </nav>
@@ -163,7 +164,7 @@
 </footer>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         {% block jquery %}
         {% endblock %}
     });

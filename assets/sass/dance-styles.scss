@@ -21,7 +21,7 @@
   .dance-style__content {
     h3 {
       &:hover{
-        color: white;
+        color: #e3e3e3;
         text-decoration: none;
       }
       margin: 0 0 5px 0;
@@ -36,10 +36,10 @@
 }
 
 .dance-style_link {
-  color: #fff;
+  color: #e3e3e3;
   &:hover,
   &:active{
-    color: white;
+    color: #e3e3e3;
     text-decoration: none;
   }
 }
