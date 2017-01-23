@@ -61,7 +61,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">О нас</a></li>
+                        <li class='{% is_view namespace="coaches" %}'><a href="{% url 'coaches:list' %}">О нас</a></li>
                         <li class='{% is_view namespace="styles" %}'><a href="{% url 'styles:list' %}">Направления танца</a></li>
                         <li><a href="#">Достижения</a></li>
                         <li><a href="#">Расписание</a></li>

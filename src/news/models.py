@@ -1,7 +1,4 @@
 # coding: utf-8
-from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
-
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
@@ -19,8 +16,6 @@ class News(DateTimeMixin):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField(verbose_name=u'Контент', null=True, blank=True)
-    content1 = RichTextUploadingField()
-    content2 = RichTextField()
     slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
     
     def __unicode__(self):
