@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<section class="about section_indent">
+    <div class="block-content__title block-content__title_indent">
+        <h2>О клубе спортивного танца "Триумф"</h2>
+    </div>
+    <div class="about__detail">
+        {{ instance.about|safe }}
+    </div>
+    <div class="about__gallery">
+        {% for obj in instance.photo_set.all %}
+        <div class="gallery__instance">
+            <img class="img-thumbnail" src="{{ obj.image.url }}" alt="">
+        </div>
+        {%cycle "" "" "" "" "</div><div class='about__gallery'>" %}
+        {% endfor %}
+    </div>
+</section>
+<section class="coaches section_indent">
+    <div class="block-content__title block-content__title_indent">
+        <h2>Наши тренеры</h2>
+    </div>
+    {% for obj in instance.coach_set.all %}
+    <div class="row row__coaches_indent">
+        <div class="col-md-5">
+            <div class="block-avatar">
+                <div class="block-avatar__photo_wrapper">
+                    <div class="block-avatar__photo">
+                        <img class="img-responsive" src="{{ obj.avatar.url }}" alt="...">
+                    </div>
+                </div>
+                <div class="block-avatar__decor">
+                    <span class="fontsforweb_fontid_6771">{{ obj.first_name }} {{ obj.last_name }}</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-7">
+            <div class="block-content__list-description">
+                <div class="list-description__name list-description__name_indent">
+                    <h4 class="fontsforweb_fontid_6771">{{ obj.first_name }} {{ obj.last_name }}</h4>
+                </div>
+                <div class="list-description__title list-description__title_indent">
+                    {{ obj.title | safe }}
+                </div>
+                <div class="list-description__quote">
+                    {{ obj.quote | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<section class="dance-hall section_indent">
+    <div class="block-content__title block-content__title_indent">
+        <h2>Танцевальный зал</h2>
+    </div>
+    <div class="row">
+        <div class="dance-hall__detail">
+            {{ instance.hall.description|safe }}
+        </div>
+    </div>
+    <div class="dance-hall__gallery">
+        <div class="row">
+            {% for obj in instance.hall.image_set.all %}
+                <div class="col-md-6">
+                    <div class="gallery__image">
+                        <img class="img-responsive" src="{{ obj.image.url }}" alt="">
+                    </div>
+                </div>
+            {%cycle "" "</div><div class='row'>" %}
+            {% endfor %}
+    </div>
+</section>
+{% endblock content %}

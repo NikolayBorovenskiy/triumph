@@ -4,7 +4,6 @@
   src: local('MTCORSVA'), url('../fonts/MTCORSVA/MTCORSVA.woff') format('woff'), url('../fonts/MTCORSVA/MTCORSVA.ttf') format('truetype');
 }
 
-
 @font-face {
   font-family: 'ArialRegular';
   src: url('../fonts/ArialRegular/ArialRegular.eot');
@@ -13,4 +12,31 @@
 
 .fontsforweb_fontid_6771 {
   font-family: 'MTCORSVA' !important;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova/proximanova-bold.woff2') format('woff2'),
+    url('../fonts/ProximaNova/proximanova-bold.woff') format('woff'),
+    url('../fonts/ProximaNova/proximanova-bold.otf') format('otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova/proximanova-regular.woff2') format('woff2'),
+    url('../fonts/ProximaNova/proximanova-regular.woff') format('woff'),
+    url('../fonts/ProximaNova/proximanova-regular.otf') format('otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../fonts/ProximaNova/proximanova-light.woff2') format('woff2'),
+    url('../fonts/ProximaNova/proximanova-light.woff') format('woff'),
+    url('../fonts/ProximaNova/proximanova-light.otf') format('otf');
+  font-weight: 100;
+  font-style: normal;
 }

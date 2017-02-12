@@ -10,11 +10,13 @@
 @import "pagination.scss";
 @import "media.scss";
 @import "dance-styles.scss";
+@import "about-us.scss";
+@import "contacts.scss";
 
 body {
   margin: 0;
   color: #e3e3e3;
-  font: 14px/1.455 Arial, sans-serif;
+  font: 14px/1.455 Proxima Nova, 'Tenor Sans', Arial, sans-serif;
   background: #000 url(../img/background.jpg) 50% 0 repeat-y;
   background-size: contain;
   -webkit-text-size-adjust: 100%;
@@ -25,7 +27,9 @@ body {
   justify-content: space-between;
 }
 p{
-  font-family: 'Tenor Sans', sans-serif;
+  font-family: Proxima Nova, sans-serif;
+  font-weight: 100;
+  letter-spacing: 1px;
 }
 *{
   outline-style: none;

@@ -1,0 +1,16 @@
+.main {
+
+  .contacts {
+    &>div{
+      margin-bottom: 15px;
+    }
+    span {
+      font-size: 14px;
+      color: #abaaaa;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+
+}

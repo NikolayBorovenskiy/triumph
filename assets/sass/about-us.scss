@@ -1,64 +1,114 @@
-.dance-style {
-  & {
-    border: 1px solid #969696;
-    padding: 15px;
-    background: url(../img/background/dance-style.jpg) 0 0 no-repeat;
-    background-size: cover;
-    height: 235px;
-    transition: border 0.5s ease-out;
+.main {
+  .section_indent{
+    margin-bottom: 60px;
   }
-  &:hover {
-    border: 1px solid #ffca3e;
-  }
-
-  .dance-style__image {
-    width: 152px;
-    float: left;
-  }
-  .dance-style__image_indent {
-    margin-right: 22px;
-  }
-  .dance-style__content {
-    h3 {
-      &:hover{
-        color: #e3e3e3;
-        text-decoration: none;
+  section.about {
+    .about__detail {
+      p {
+        line-height: 30px;
       }
-      margin: 0 0 5px 0;
-      color: #ffca3e;
-      text-decoration: underline;
+    }
+
+    .about__gallery {
+      & {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .gallery__instance {
+        width: 130px;
+        height: 130px;
+        position: relative;
+        overflow: hidden;
+        img {
+          padding: 0;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          max-height: 100%;
+          width: auto;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+      }
     }
   }
-}
 
-.dance-style_indent {
-  margin-bottom: 15px;
-}
+  .block-content__list-description {
+    .list-description__name {
+      h4 {
+        font-size: 20px;
+      }
+    }
+    .list-description__name_indent {
+      margin-bottom: 25px;
+      text-shadow: 0px -2px 1px black;
+    }
+    .list-description__title_indent {
+      margin-bottom: 30px;
+    }
+    .list-description__quote {
+      color: #abaaaa;
+    }
+  }
+  .row__coaches_indent {
+    margin-bottom: 55px;
+  }
 
-.dance-style_link {
-  color: #e3e3e3;
-  &:hover,
-  &:active{
-    color: #e3e3e3;
-    text-decoration: none;
+  .block-avatar {
+    .block-avatar__photo_wrapper {
+      width: 264px;
+    }
+    .block-avatar__photo {
+      width: 230px;
+      margin: 0 auto;
+      img {
+        width: inherit;
+        border-top: 1px solid #a6a6a6;
+        border-left: 1px solid #a6a6a6;
+        border-right: 1px solid #a6a6a6;
+      }
+    }
+    .block-avatar__decor {
+      width: 264px;
+      height: 40px;
+      background: url(../img/background/coach-decor.jpg) 10px 0 no-repeat #3b3b3b;
+      border: 1px solid #a6a6a6;
+      display: flex;
+      position: relative;
+      span {
+        margin: auto;
+        font-size: 18px;
+        color: #9f9d9d;
+        text-shadow: 0px -2px 1px black;
+      }
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        width: 17px;
+        height: 14px;
+        background-size: 100%;
+        z-index: -1;
+      }
+      &:before {
+        background: url(../img/background/edge-left.png) 0 0 no-repeat;
+        left: 0;
+        top: -37%;
+      }
+      &:after {
+        background: url(../img/background/edge-right.png) 0 0 no-repeat;
+        right: 0;
+        top: -39%;
+      }
+    }
   }
-}
+  .dance-hall{
+    .dance-hall__gallery{
+      margin: 20px 0;
+    }
+  }
 
-.dance-styles-detail {
-  h3 {
-    margin: 0 0 10px 0;
-    text-align: center;
-    color: #ffca3e;
-  }
-  .dance-styles-detail__carousel {
-    background-color: #3f3f3f;
-    padding: 8px;
-  }
-  .dance-styles-detail__text {
-    line-height: 25px;
-  }
-  .slide__main-view {
-    height: 315px;
-    overflow: hidden;
-  }
 }

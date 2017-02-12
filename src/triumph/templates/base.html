@@ -34,6 +34,8 @@
             src="{% static 'build/bundle.min.js' %}?ver={% file_version 'build/bundle.min.js' %}"></script>
     {% endif %}
     <script src="{% static 'vendor/slick-carousel/slick/slick.min.js' %}"></script>
+    {% block external_script %}
+    {% endblock %}
     <!--[if lt IE 9]>
     <script src="{% static 'vendor/html5shiv/dist/html5shiv.min.js' %}"></script>
     <script src="{% static 'vendor/slick-carousel/slick/slick.min.js' %}"></script>
@@ -61,11 +63,11 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class='{% is_view namespace="coaches" %}'><a href="{% url 'coaches:list' %}">О нас</a></li>
+                        <li class='{% is_view view_name="coach-list" %}'><a href="{% url 'school:coach-list' %}">О нас</a></li>
                         <li class='{% is_view namespace="styles" %}'><a href="{% url 'styles:list' %}">Направления танца</a></li>
                         <li><a href="#">Достижения</a></li>
                         <li><a href="#">Расписание</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li class='{% is_view view_name="contact-list" %}'><a href="{% url 'contacts:contact-list' %}">Контакты</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

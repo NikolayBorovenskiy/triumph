@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'vishap.contrib.apps.django.vishap',
     'articles',
     'styles',
-    'coaches',
+    'school',
 ]
 
 AUTH_USER_MODEL = 'users.User'
