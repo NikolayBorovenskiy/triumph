@@ -9,26 +9,37 @@
 {% endblock %}
 
 {% block jquery %}
-    var myLatLng = {lat: -25.363, lng: 131.044};
     var image = 'static/img/map_icon.png';
     var $container = $('#map');
-    console.log($container.width());
     $container.height($container.width()*0.7 + 'px');
 
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: myLatLng,
-    zoom: 7,
-    scrollwheel: false, //отключение/включение масштабирования колесиком мыши + swipe
-    zoomControl: true //отключение/включение панели масштабирования
-    });
-    console.log(map);
+    geocoder = new google.maps.Geocoder();
+    var mapOptions = {
+      zoom: 16,
+      center: {lat: -25.363, lng: 131.044},
+      scrollwheel: false, //отключение/включение масштабирования колесиком мыши + swipe
+      zoomControl: true //отключение/включение панели масштабирования
+    }
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Танцевальная школа "Триумф"',
-        icon: image
-    });
+    (function codeAddress() {
+        var address = '{{ instance.address }}';
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          console.log(results);
+          if (status == 'OK') {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                position: results[0].geometry.location,
+                map: map,
+                title: 'Танцевальная школа "Триумф"',
+                icon: image
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+    })();
+
 {% endblock jquery %}
 
 
