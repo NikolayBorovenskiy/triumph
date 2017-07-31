@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block jquery %}
+    var timetable = new Timetable(),
+        startTime = '{{ timetable.start }}',
+        endTime = '{{ timetable.end }}',
+        workDays = '{{ days }}',
+        startTimeHour = startTime.split(':')[0],
+        endTimeHour = endTime.split(':')[0];
+
+    timetable.setScope(parseInt(startTimeHour, 10), parseInt(endTimeHour, 10));
+    timetable.addDays(workDays.split(','));
+    {% for event in events %}
+        console.log('{{ event.start }}');
+        var _start = '{{ event.start }}'.split(':');
+        var start = new Date;
+        start.setHours(_start[0]);
+        start.setMinutes(_start[1]);
+
+        var _finish = '{{ event.finish }}'.split(':');
+        var finish = new Date;
+        finish.setHours(_finish[0]);
+        finish.setMinutes(_finish[1]);
+
+        timetable.addEvent('{{ event.name }}', '{{ event.day.title }}', start, finish, { url: '#' });
+    {% endfor %}
+    //timetable.addEvent('контемп', 'среда', new Date(2017,7,17,11,00), new Date(2017,7,17,12,45), { url: '#' });
+    var _timetable = '{{ timetable.start }}';
+
+
+
+    var renderer = new Timetable.Renderer(timetable);
+    renderer.draw('.timetable');
+{% endblock jquery %}
+
+
+{% block content %}
+<div class="timetable-wrapper">
+    <div class="timetable"></div>
+</div>
+{% endblock content %}

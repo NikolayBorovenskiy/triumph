@@ -1,0 +1,35 @@
+.main {
+  section.attaintment {
+
+    .attaintment__content,
+    .attaintment__intro {
+        line-height: 30px;
+      }
+
+    .attaintment__diploma_indent{
+      margin: 20px 0;
+    }
+    .attaintment__diploma {
+      & {
+        padding: 24px 28px 0 28px;
+        height: 242px;
+        background-color: #000;
+        background: radial-gradient(ellipse, #f9fbff, rgba(0, 0, 0, 0));
+        border-top: 1px solid #7b7b7b;
+      }
+      .slider-nav,
+      .slick-list {
+        height: 100%;
+      }
+
+      .slick-slide{
+        height: 190px;
+        margin: 0 8px;
+      }
+      .slick-slide img{
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

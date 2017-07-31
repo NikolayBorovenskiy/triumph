@@ -9,6 +9,7 @@ class School(models.Model):
     title = models.CharField(verbose_name=u'Название', max_length=60,
                              default=u'Труимф')
     about = RichTextField()
+    promo = RichTextField()
     
     def __unicode__(self):
         return '{}'.format(self.title)

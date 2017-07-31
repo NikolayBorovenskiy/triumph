@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'articles',
     'styles',
     'school',
+    'attainments',
+    'timetable'
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -64,7 +66,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]

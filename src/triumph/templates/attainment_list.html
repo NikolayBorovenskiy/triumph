@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block jquery %}
+    $('.slider-nav').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      dots: false,
+      centerMode: true,
+      focusOnSelect: true,
+      variableWidth: true
+    });
+
+{% endblock jquery %}
+
+{% block head_title %}
+    {{ title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+<section class="attaintment section_indent">
+    <div class="block-content__title block-content__title_indent">
+    <h2>{{ title }}</h2>
+    </div>
+    <div class="attaintment__intro">
+        {{ instance.intro | safe }}
+    </div>
+    <div class="attaintment__diploma attaintment__diploma_indent">
+        <div class="slider-nav">
+            {% for obj in instance.diploma_set.all %}
+            <div class="slide clearfix">
+                <img class="img-responsive" src="{{ obj.image.url }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="attaintment__content">
+        {{ instance.content | safe }}
+    </div>
+    <div class="attaintment__photo">
+        <div class="slide__main-view">
+            <img id="main-view" src="{{ cover_photo.image.url }}">
+        </div>
+        <div class="slider-nav">
+            {% for obj in instance.photo_set.all %}
+            <div class="slide clearfix">
+                <img class="img-responsive" src="{{ obj.image.url }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</section>
+{% endblock content %}

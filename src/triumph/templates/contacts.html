@@ -16,7 +16,7 @@
     geocoder = new google.maps.Geocoder();
     var mapOptions = {
       zoom: 16,
-      center: {lat: -25.363, lng: 131.044},
+      center: {lat: 49.9935, lng: 36.2304},
       scrollwheel: false, //отключение/включение масштабирования колесиком мыши + swipe
       zoomControl: true //отключение/включение панели масштабирования
     }
@@ -27,6 +27,7 @@
         geocoder.geocode( { 'address': address}, function(results, status) {
           console.log(results);
           if (status == 'OK') {
+            console.log(results[0].geometry.location)
             map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
                 position: results[0].geometry.location,

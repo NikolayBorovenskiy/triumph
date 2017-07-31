@@ -1,0 +1,180 @@
+// dimensions
+$timetable-days-column-width: 119px !default;
+$timetable-days-row-height: 42px !default;
+$timetable-hour-row-height: 52px !default;
+$timetable-heading-height: 30px !default;
+$timetable-breakpoint: "only screen and (max-width: 960px)" !default;
+// colors & decoration
+$timetable-time-column-color: #8d8d8d !default;
+$timetable-grid-color: #7b7b7b !default;
+$timetable-header-color: #fdc83e !default;
+$timetable-header-bg-color: #525252 !default;
+$timetable-grid: 1px solid;
+$timetable-row-header-padding: 15px !default;
+$timetable-row-header-color: #EFEFEF !default;
+$timetable-column-separator: 1px solid #7b7b7b !default;
+$timetable-entry-row-separator: none !default;
+$timetable-row-header-gap: 5px solid #ffffff !default;
+$timetable-row-uneven-color: #6d6d6d !default;
+$timetable-row-even-color: #505050 !default;
+$timetable-entry-color: #fdc83e !default;
+$timetable-entry-color-hover: darken($timetable-entry-color, 10%) !default;
+$timetable-entry-border: 1px solid darken($timetable-entry-color, 15%) !default;
+$timetable-entry-padding: 10px !default;
+
+
+.timetable-wrapper{
+  //display: flex;
+}
+
+.timetable {
+  margin: auto;
+  @include clearfix;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  aside li {
+    height: $timetable-hour-row-height;
+  }
+
+  section > ul li {
+    width: $timetable-days-column-width;
+    display: inline-block;
+  }
+
+  aside {
+    width: 8%;
+    padding: 0 !important;
+    //border-right: $timetable-row-header-gap;
+    background: url(../img/timeline-decor-aside.png) repeat-y 100% 0,
+    $timetable-time-column-color;
+    li {
+      padding: 0 $timetable-row-header-padding;
+
+    }
+
+    time {
+      padding-top: $timetable-days-row-height;
+      display: block;
+      li {
+        position: relative;
+      }
+
+      .time-label {
+        display: block;
+        position: absolute;
+        top: 0;
+        transform: translateY(-40%);
+        &::before {
+          content: '';
+          position: absolute;
+          background: #fff;
+          left: 40px;
+          width: 6px;
+          height: 1px;
+          top: 50%;
+        }
+      }
+    }
+  }
+
+  section {
+    width: 92%;
+    padding: 0 !important;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-flow: column nowrap;
+
+    header {
+      transform-style: preserve-3d;
+      font-size: 0;
+      flex-basis: $timetable-days-row-height;
+
+      li {
+        display: inline-block;
+        font-size: 12px;
+        overflow: visible;
+        text-align: center;
+        width: $timetable-days-column-width;
+        color: $timetable-header-color;
+        background-color: $timetable-header-bg-color;
+        line-height: $timetable-days-row-height;
+        position: relative;
+        border-bottom: $timetable-column-separator;
+        border-right: $timetable-column-separator;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    ul.room-timeline {
+      flex-grow: 1;
+      display: inline-flex;
+      li {
+        position: relative;
+        border-right: $timetable-column-separator;
+        background-color: $timetable-row-even-color;
+
+        &:nth-child(odd) {
+          background-color: $timetable-row-uneven-color;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &:before, &:after {
+          content: "";
+          position: absolute;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        &:before {
+          background-image: linear-gradient(to bottom, $timetable-grid-color 1px, transparent 1px);
+          background-size: auto $timetable-hour-row-height / 4;
+        }
+
+        &:after {
+          background-image: linear-gradient(to bottom, #e8e7e7 1px, transparent 1px, transparent);
+          background-size: auto $timetable-hour-row-height;
+          background-position: -2px 0;
+        }
+
+      }
+    }
+    .time-entry {
+      background-color: $timetable-entry-color;
+      transition: 200ms background-color;
+      height: $timetable-hour-row-height - 1px;
+      display: block;
+      position: absolute;
+      z-index: 2;
+      padding: 0 $timetable-entry-padding;
+      white-space: normal;
+      overflow: hidden;
+      color: white;
+      border: $timetable-entry-border;
+      width: 100%;
+      text-align: center;
+      small {
+        display: block;
+      }
+      &:hover {
+        background-color: $timetable-entry-color-hover
+      }
+    }
+
+  }
+}

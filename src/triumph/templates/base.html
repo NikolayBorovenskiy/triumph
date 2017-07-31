@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{% static 'img/favicon/favicon.ico' %}">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Tenor+Sans&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,700italic&subset=cyrillic-ext,latin" rel="stylesheet">
     <meta name="msapplication-TileImage"
           content="{% static 'images/favicon/ms-icon-144x144.png' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -34,6 +34,7 @@
             src="{% static 'build/bundle.min.js' %}?ver={% file_version 'build/bundle.min.js' %}"></script>
     {% endif %}
     <script src="{% static 'vendor/slick-carousel/slick/slick.min.js' %}"></script>
+    <script src="{% static 'js/timetable.js' %}"></script>
     {% block external_script %}
     {% endblock %}
     <!--[if lt IE 9]>
@@ -65,8 +66,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class='{% is_view view_name="coach-list" %}'><a href="{% url 'school:coach-list' %}">О нас</a></li>
                         <li class='{% is_view namespace="styles" %}'><a href="{% url 'styles:list' %}">Направления танца</a></li>
-                        <li><a href="#">Достижения</a></li>
-                        <li><a href="#">Расписание</a></li>
+                        <li class='{% is_view namespace="attainments" %}'><a href="{% url 'attainments:detail-view' %}">Достижения</a></li>
+                        <li class='{% is_view namespace="timetable" %}'><a href="{% url 'timetable:week' %}">Расписание</a></li>
                         <li class='{% is_view view_name="contact-list" %}'><a href="{% url 'contacts:contact-list' %}">Контакты</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -98,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="row-height">
-                    <div class="col-md-3 col-md-height col-md-top {% is_view namespace='styles' output='hide' %}">
+                    <div class="col-md-3 col-md-height col-md-top {% is_view namespace='styles,timetable' output='hide' %}">
                         <aside class="sidebar">
                             <nav class="sidebar-nav">
                                 <ul class="sidebar-nav__list">

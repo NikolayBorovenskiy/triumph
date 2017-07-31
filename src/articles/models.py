@@ -6,13 +6,12 @@ from core.models import DateTimeMixin
 from core.utils import upload_location, pre_save_post_receiver, create_slug
 
 
-
 class Articles(DateTimeMixin):
     title = models.CharField(verbose_name=u'Заголовок', max_length=500)
     cover_image = models.ImageField(upload_to=upload_location,
-                              null=True, blank=True,
-                              width_field="width_field",
-                              height_field="height_field")
+                                    null=True, blank=True,
+                                    width_field="width_field",
+                                    height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = RichTextUploadingField()

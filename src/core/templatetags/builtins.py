@@ -45,11 +45,11 @@ def is_view(context, view_name=None, namespace=None, output='active', **kwargs):
     """
     resolver_match = resolve(context['request'].path)
     
-    if namespace and namespace == resolver_match.namespace:
+    if namespace and resolver_match.namespace in namespace.split(','):
         return output
     print(view_name, 'view_name')
     print(resolver_match.url_name, 'resolver_match')
-    if view_name and resolver_match.url_name == view_name:
+    if view_name and resolver_match.url_name in view_name:
         if all(resolver_match.kwargs[k] == kwargs[k] for k in kwargs.keys()):
             return output
     return ''

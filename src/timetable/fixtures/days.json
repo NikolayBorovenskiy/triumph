@@ -1,0 +1,51 @@
+[
+  {
+    "model": "timetable.days",
+    "pk": 0,
+    "fields": {
+      "title": "понедельник"
+    }
+  },
+  {
+    "model": "timetable.days",
+    "pk": 1,
+    "fields": {
+      "title": "вторник"
+    }
+  },
+  {
+    "model": "timetable.days",
+    "pk": 2,
+    "fields": {
+      "title": "среда"
+    }
+  },
+  {
+    "model": "timetable.days",
+    "pk": 3,
+    "fields": {
+      "title": "четверг"
+    }
+  },
+  {
+    "model": "timetable.days",
+    "pk": 4,
+    "fields": {
+      "title": "пятница"
+    }
+  },
+  {
+    "model": "timetable.days",
+    "pk": 5,
+    "fields": {
+      "title": "суббота"
+    }
+  },
+  {
+    "model": "timetable.days",
+    "pk": 6,
+    "fields": {
+      "title": "воскресенье"
+    }
+  }
+]

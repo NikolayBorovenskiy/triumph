@@ -1,9 +1,10 @@
 # coding: utf-8
 
 import os
-from hashlib import md5
-
+import re
 import requests
+
+from hashlib import md5
 from unidecode import unidecode
 from django.conf import settings
 from django.core.files import File
@@ -129,3 +130,11 @@ def create_name(sender, instance, new_name=None):
 
 def upload_location(instance, filename):
     return "%s/%s" % (instance.id, filename)
+
+
+def cleanhtml(raw_html):
+    cleanr = re.compile('<.*?>')
+    cleantext = re.sub(cleanr, '', raw_html)
+    _cleanr = re.compile('&\w+;')
+    _cleantext = re.sub(_cleanr, '', cleantext)
+    return _cleantext

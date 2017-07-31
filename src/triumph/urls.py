@@ -26,8 +26,10 @@ urlpatterns = [
     url(r'^videos/', include("videos.urls", namespace='videos')),
     url(r'^articles/', include("articles.urls", namespace='articles')),
     url(r'^dance-styles/', include("styles.urls", namespace='styles')),
+    url(r'^', include("attainments.urls", namespace='attainments')),
     url(r'^', include("school.urls", namespace='school')),
     url(r'^', include("school.urls", namespace='contacts')),
+    url(r'^', include("timetable.urls", namespace='timetable')),
 ]
 
 if settings.DEBUG:
