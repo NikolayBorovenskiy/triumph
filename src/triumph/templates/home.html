@@ -7,7 +7,7 @@
 {% block styles %}
 <style>
     .sub-navigation__nav_up {
-        margin-top: -40px!important;
+        margin-top: -40px !important;
     }
 </style>
 {% endblock %}
@@ -17,31 +17,41 @@
 <section class="promo">
     <div class="container">
         <div class="row promo_row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="promo__tango"></div>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-8">
+                <div class="promo-wrapper">
+                    <div id="promo-slider">
+                    {% for obj in gellary.photo_set.all %}
+                    <div class="slide clearfix">
+                        <img class="img-responsive" src="{{ obj.image.url }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
         </div>
-
-        <!--<div id="gallery">
-       <div class="slide clearfix">
-           <div class="center-block">
-               <div class="promo__image clock">
-                   <img src="images/img-clock.png" width="376" height="540" alt="">
-               </div>
-               <div class="promo__text">
-                   <strong class="promo__sub-title">Manage
-                       <mark>your time</mark>
-                       easily.</strong>
-                   <a href="" class="btn"><span>1Try it out for free</span></a>
-               </div>
-           </div>
-       </div>
-   </div>-->
     </div>
 </section>
 {% endblock %}
 
+
+{% block jquery %}
+    $('#promo-slider').slick({
+      dots: false,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 7000,
+      centerMode: true,
+      focusOnSelect: true,
+      infinite: true,
+      speed: 5000,
+      fade: true,
+      cssEase: 'linear'
+    });
+
+{% endblock jquery %}
 
 {% block content %}
 <div class="main_page inside-full-height">

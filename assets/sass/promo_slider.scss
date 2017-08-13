@@ -4,7 +4,7 @@
   background-image: url(../img/tango_pair.png);
   background-size: contain;
   background-repeat: no-repeat;
-  margin: -10px 0 -10px;
+  margin: -10px 0 -10px -22px;
   z-index: 1001;
   position: relative;
 }
@@ -13,5 +13,36 @@
   background: #000 url(../img/promo_background.jpg) 53% 0;
   .promo_row {
     padding-left: 118px;
+  }
+  .promo-wrapper {
+    position: relative;
+    margin-top: -22px;
+    margin-left: -40px;
+    z-index: 1000;
+    width: 611px;
+    height: 280px;
+    border: 1px solid #777777;
+    border-radius: 5px;
+    &::before {
+      position: absolute;
+      display: block;
+      top: 100%;
+      left: -8px;
+      content: '';
+      width: 611px;
+      height: 99px;
+      background-image: url(../img/background/slider-shadow.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    #promo-slider {
+      opacity: .7;
+      width: 100%;
+      height: inherit;
+      overflow: hidden;
+      .slide {
+        border-radius: 10px;
+      }
+    }
   }
 }
