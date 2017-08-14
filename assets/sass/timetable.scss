@@ -19,11 +19,10 @@ $timetable-row-uneven-color: #6d6d6d !default;
 $timetable-row-even-color: #505050 !default;
 $timetable-entry-color: #fdc83e !default;
 $timetable-entry-color-hover: darken($timetable-entry-color, 10%) !default;
-$timetable-entry-border: 1px solid darken($timetable-entry-color, 15%) !default;
+$timetable-entry-border: 1px solid #B0BEC5 !default;
 $timetable-entry-padding: 10px !default;
 
-
-.timetable-wrapper{
+.timetable-wrapper {
   //display: flex;
 }
 
@@ -95,33 +94,41 @@ $timetable-entry-padding: 10px !default;
       transform-style: preserve-3d;
       font-size: 0;
       flex-basis: $timetable-days-row-height;
+      ul {
+        display: flex;
+        flex-flow: row nowrap;
+        li {
+          flex-grow: 1;
+          flex-basis: 80px;
+          display: inline-block;
+          font-size: 12px;
+          overflow: visible;
+          text-align: center;
+          //width: $timetable-days-column-width;
+          color: $timetable-header-color;
+          background-color: $timetable-header-bg-color;
+          line-height: $timetable-days-row-height;
+          position: relative;
+          border-bottom: $timetable-column-separator;
+          border-right: $timetable-column-separator;
 
-      li {
-        display: inline-block;
-        font-size: 12px;
-        overflow: visible;
-        text-align: center;
-        width: $timetable-days-column-width;
-        color: $timetable-header-color;
-        background-color: $timetable-header-bg-color;
-        line-height: $timetable-days-row-height;
-        position: relative;
-        border-bottom: $timetable-column-separator;
-        border-right: $timetable-column-separator;
-
-        &:last-child {
-          border-right: none;
+          &:last-child {
+            border-right: none;
+          }
         }
       }
+
     }
 
     ul.room-timeline {
       flex-grow: 1;
-      display: inline-flex;
+      display: flex;
       li {
+        flex-grow: 1;
         position: relative;
         border-right: $timetable-column-separator;
         background-color: $timetable-row-even-color;
+        flex-basis: 80px;
 
         &:nth-child(odd) {
           background-color: $timetable-row-uneven-color;
@@ -155,16 +162,18 @@ $timetable-entry-padding: 10px !default;
       }
     }
     .time-entry {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
       background-color: $timetable-entry-color;
       transition: 200ms background-color;
       height: $timetable-hour-row-height - 1px;
-      display: block;
       position: absolute;
       z-index: 2;
       padding: 0 $timetable-entry-padding;
       white-space: normal;
       overflow: hidden;
-      color: white;
+      color: #F5F5F5;
       border: $timetable-entry-border;
       width: 100%;
       text-align: center;
@@ -172,7 +181,19 @@ $timetable-entry-padding: 10px !default;
         display: block;
       }
       &:hover {
-        background-color: $timetable-entry-color-hover
+        background-color: $timetable-entry-color-hover;
+      }
+      .event-name{
+        font-size: 90%;
+      }
+      .event-coach {
+        text-transform: uppercase;
+        background-color: #EEEEEE;
+        color: #616161;
+        font-size: 75%;
+      }
+      .event-info {
+        color: #D84315;
       }
     }
 

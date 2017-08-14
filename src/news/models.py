@@ -16,7 +16,7 @@ class News(DateTimeMixin):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField(verbose_name=u'Контент', null=True, blank=True)
-    slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
+    slug = models.SlugField(editable=False, unique=True, null=True, blank=True, max_length=255)
     
     def __unicode__(self):
         return self.title

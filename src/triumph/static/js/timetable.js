@@ -80,21 +80,23 @@ Timetable.Renderer = function(tt) {
 
             return this;
         },
-        addEvent: function(name, day, start, end, options) {
+        addEvent: function(name, color, day, start, end, coach, info, options) {
+            console.log(coach, 'coach');
             if (!dayExistsIn(day, this.days)) {
                 throw new Error('Unknown day');
             }
             if (!isValidTimeRange(start, end)) {
                 throw new Error('Invalid time range: ' + JSON.stringify([start, end]));
             }
-
             var optionsHasValidType = Object.prototype.toString.call(options) === '[object Object]';
-
             this.events.push({
                 name: name,
+                color: color,
                 day: day,
                 startDate: start,
                 endDate: end,
+                coach: coach,
+                info: info,
                 options: optionsHasValidType ? options : undefined
             });
 
@@ -189,6 +191,8 @@ Timetable.Renderer = function(tt) {
             function appendEvent(event, node) {
                 var hasOptions = event.options !== undefined;
                 var hasURL, hasAdditionalClass, hasDataAttributes = false;
+                var hasCoach = event.coach !== undefined;
+                var hasAdditionalInfo = event.info !== undefined;
 
                 if (hasOptions) {
                     hasURL = event.options.url !== undefined;
@@ -196,11 +200,21 @@ Timetable.Renderer = function(tt) {
                     hasDataAttributes = event.options.data;
                 }
 
-                var elementType = hasURL ? 'a' : 'span';
+                //var elementType = hasURL ? 'a' : 'span';
+                var elementType = 'span';
                 var aNode = node.appendChild(document.createElement(elementType));
                 var smallNode = aNode.appendChild(document.createElement('small'));
                 aNode.title = event.name;
-
+                if (hasCoach) {
+                    var smallCoachNode = aNode.appendChild(document.createElement('small'));
+                    smallCoachNode.textContent = event.coach;
+                    smallCoachNode.className = 'event-coach';
+                }
+                if (hasAdditionalInfo) {
+                    var smallAdditionalNode = aNode.appendChild(document.createElement('small'));
+                    smallAdditionalNode.textContent = event.info;
+                    smallAdditionalNode.className = 'event-info';
+                }
                 if (hasURL) {
                     aNode.href = event.options.url;
                 }
@@ -209,18 +223,18 @@ Timetable.Renderer = function(tt) {
                         aNode.setAttribute('data-' + key, event.options.data[key]);
                     }
                 }
-
                 aNode.className = hasAdditionalClass ? 'time-entry ' + event.options.class : 'time-entry';
                 aNode.style.height = computeEventBlockHeight(event);
                 aNode.style.top = computeEventBlockOffset(event);
+                aNode.style.backgroundColor = event.color;
                 smallNode.textContent = event.name;
+                smallNode.className = 'event-name';
             }
 
             function computeEventBlockHeight(event) {
                 var start = event.startDate;
                 var end = event.endDate;
                 var durationHours = computeDurationInHours(start, end);
-                console.log(durationHours, 'durationHours');
                 return durationHours / scopeDurationHours * 100 + '%';
             }
 
@@ -237,7 +251,6 @@ Timetable.Renderer = function(tt) {
 
             var timetable = this.timetable;
             var scopeDurationHours = getDurationHours(timetable.scope.hourStart, timetable.scope.hourEnd);
-            console.log(scopeDurationHours, 'scopeDurationHours');
             var container = document.querySelector(selector);
             checkContainerPrecondition(container);
             emptyNode(container);

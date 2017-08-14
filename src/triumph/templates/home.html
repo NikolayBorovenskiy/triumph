@@ -22,13 +22,15 @@
             </div>
             <div class="col-md-8">
                 <div class="promo-wrapper">
-                    <div id="promo-slider">
-                    {% for obj in gellary.photo_set.all %}
-                    <div class="slide clearfix">
-                        <img class="img-responsive" src="{{ obj.image.url }}">
+                    <div class="promo-inner-wrapper">
+                        <div id="promo-slider">
+                            {% for obj in slider_photos %}
+                            <div class="slide clearfix">
+                                <img class="img-responsive" src="{{ obj.image.url }}">
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                    {% endfor %}
-                </div>
                 </div>
             </div>
         </div>

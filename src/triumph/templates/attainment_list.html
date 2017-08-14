@@ -10,6 +10,17 @@
       variableWidth: true
     });
 
+    function changeImageSource(src) {
+        $("#main-view").attr("src", src)
+    }
+    $slider = $('.slider-nav');
+    $slider.on( "click", function(event) {
+        var elem = $(event.target);
+        if (elem.hasClass('img-responsive')) {
+          changeImageSource(elem.attr('src'));
+        }
+        return false;
+      });
 {% endblock jquery %}
 
 {% block head_title %}

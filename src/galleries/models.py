@@ -12,7 +12,8 @@ from core.utils import (upload_location,
 
 class Gallery(DateTimeMixin):
     title = models.CharField(verbose_name=u'Заголовок', max_length=50)
-    slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
+    slug = models.SlugField(editable=False, unique=True, null=True, blank=True,
+                            max_length=255)
     
     def __unicode__(self):
         return self.title
@@ -37,14 +38,13 @@ class Gallery(DateTimeMixin):
 
 
 class Photo(ImageMixin):
-    gallery = models.ForeignKey(Gallery)
+    gallery = models.ForeignKey(Gallery, null=True, blank=True)
     is_cover_photo = models.BooleanField(default=False)
+    is_slider_photo = models.BooleanField(default=False)
     
     def get_gallery(self):
-        return u'{}'.format(self.gallery.title)
-
-
-
+        return u'{}'.format(
+            self.gallery.title if hasattr(self.gallery, 'title') else None)
 
 
 pre_save.connect(pre_save_photo_receiver, sender=Photo)

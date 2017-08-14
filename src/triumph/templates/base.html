@@ -1,7 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ru">
-<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +18,9 @@
     {% endblock %}
 
     {% if debug %}
-    <link rel="stylesheet" href="{% static 'build/bundle.css' %}?ver={% file_version 'build/bundle.css' %}"/>
     <link rel="stylesheet" href="{% static 'vendor/slick-carousel/slick/slick.css' %}"/>
     <link rel="stylesheet" href="{% static 'vendor/slick-carousel/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'build/bundle.css' %}?ver={% file_version 'build/bundle.css' %}"/>
     <link href="http://vjs.zencdn.net/5.14.1/video-js.css" rel="stylesheet">
 
     <!-- If you'd like to support IE8 -->
@@ -145,7 +144,7 @@
         <div class="footer_wrapper">
             <div class="footer__copywright">
                 <ul class="list">
-                    <li>2016 Клуб спортивного танца "Триумф"</li>
+                    <li><script>document.write(new Date().getFullYear())</script> Клуб спортивного танца "Триумф"</li>
                     <li>Design: <a href="#">GitaneGroup</a></li>
                 </ul>
             </div>
