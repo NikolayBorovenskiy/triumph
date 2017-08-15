@@ -63,11 +63,11 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class='{% is_view view_name="coach-list" %}'><a href="{% url 'school:coach-list' %}">О нас</a></li>
+                        <li class='{% is_view namespace="school" %}'><a href="{% url 'school:coach-list' %}">О нас</a></li>
                         <li class='{% is_view namespace="styles" %}'><a href="{% url 'styles:list' %}">Направления танца</a></li>
                         <li class='{% is_view namespace="attainments" %}'><a href="{% url 'attainments:detail-view' %}">Достижения</a></li>
                         <li class='{% is_view namespace="timetable" %}'><a href="{% url 'timetable:week' %}">Расписание</a></li>
-                        <li class='{% is_view view_name="contact-list" %}'><a href="{% url 'contacts:contact-list' %}">Контакты</a></li>
+                        <li class='{% is_view namespace="contacts" %}'><a href="{% url 'contacts:contact-list' %}">Контакты</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -144,7 +144,7 @@
         <div class="footer_wrapper">
             <div class="footer__copywright">
                 <ul class="list">
-                    <li><script>document.write(new Date().getFullYear())</script> Клуб спортивного танца "Триумф"</li>
+                    <li><script>document.write(new Date().getFullYear())</script> {{ contacts.school }}</li>
                     <li>Design: <a href="#">GitaneGroup</a></li>
                 </ul>
             </div>
@@ -152,12 +152,17 @@
                 <div class="address">
                     <div class="address__phones">
                         <ul class="list">
-                            <li>(093) 761-66-48</li>
-                            <li>(057) 761-66-48</li>
+                            {% for phone in contacts.phones %}
+                            <li>{{ phone }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="address__address address_ml32">
-                        <p>г. Харьков, <br>ул. Пушкинская, 79 </p>
+                        <ul class="list">
+                            {% for obj in contacts.address %}
+                            <li>{{ obj }}</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </address>

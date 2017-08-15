@@ -30,6 +30,7 @@
   }
   .address__phones, .address__address {
     display: inline-block;
+    vertical-align: top;
   }
   .address__phones{
     position: relative;
