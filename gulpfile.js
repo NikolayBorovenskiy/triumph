@@ -2,6 +2,8 @@
 
 let gulp = require('gulp');
 let uglify = require('gulp-uglify');
+let es = require('event-stream');
+let concat = require('gulp-concat');
 let notify = require('gulp-notify');
 let plumber = require('gulp-plumber');
 let cssmin = require('gulp-cssmin');
@@ -13,6 +15,8 @@ let path = require('path');
 let browserSync = require('browser-sync').create();
 let webpack_stream = require('webpack-stream');
 let webpackConfig = require('./webpack.config.js');
+let _ = require('lodash');
+let fs = require('fs');
 
 let spawn = require('child_process').spawn;
 let argv = require('yargs')
@@ -20,6 +24,8 @@ let argv = require('yargs')
     .default('port', 3000)
     .default('bsync-port', 8000)
     .argv;
+
+let scripts = require('./app.scripts.json');
 
 let djangoAddress = argv.host + ":" + argv.port;
 let config = {
@@ -34,7 +40,7 @@ let config = {
         }
     },
     js: {
-        src: './assets/js/index.js',
+        src: './assets/js/*.js',
         entry: {
             'bundle': './assets/js/index.js'
         },
@@ -44,25 +50,39 @@ let config = {
 };
 
 
-gulp.task('js:dev', function () {
-    let cfg = Object.assign({}, webpackConfig.development, {entry: config.js.entry});
+//gulp.task('js:dev', function () {
+//    let cfg = Object.assign({}, webpackConfig.development, {entry: config.js.entry});
+//
+//    return gulp.src(config.js.src)
+//        .pipe(webpack_stream(cfg))
+//        .on('error', function (error) {
+//            console.log(error.message);
+//            this.emit('end');
+//        })
+//        .pipe(gulp.dest(config.js.dest))
+//});
 
-    return gulp.src(config.js.src)
-        .pipe(webpack_stream(cfg))
-        .on('error', function (error) {
-            console.log(error.message);
-            this.emit('end');
-        })
-        .pipe(gulp.dest(config.js.dest))
-});
-
-
-gulp.task('js:prod', function () {
-    let cfg = Object.assign({}, webpackConfig.production, {entry: config.js.entry});
-    return gulp.src(config.js.src)
-        .pipe(webpack_stream(cfg))
+gulp.task('js:dev', function(){
+    return es.merge(gulp.src(config.js.src))
+        .pipe(concat('app.js'))
         .pipe(gulp.dest(config.js.dest));
 });
+
+gulp.task('js:prod', function(){
+    return es.merge(gulp.src(config.js.src))
+        .pipe(uglify())
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest(config.js.dest));
+});
+
+
+
+//gulp.task('js:prod', function () {
+//    let cfg = Object.assign({}, webpackConfig.production, {entry: config.js.entry});
+//    return gulp.src(config.js.src)
+//        .pipe(webpack_stream(cfg))
+//        .pipe(gulp.dest(config.js.dest));
+//});
 
 
 gulp.task('sass:dev', function () {
@@ -85,13 +105,25 @@ gulp.task('sass:prod', function () {
         .pipe(gulp.dest(config.sass.dest))
 });
 
+gulp.task('vendor', function(){
+    _.forIn(scripts.chunks, function(chunkScripts, chunkName){
+        var paths = [];
+        chunkScripts.forEach(function(script){
+            var scriptFileName = scripts.paths[script];
+            if (!fs.existsSync(__dirname + '/' + scriptFileName)) {
 
-//gulp.task('active-virtual-env', function () {
-//    let env = process.env['VIRTUAL_ENV'] + '/bin/active';
-//    let command = 'source';
-//    spawn(command + ' ' + env);
-//});
+                throw console.error('Required path doesn\'t exist: ' + __dirname + '/' + scriptFileName, script)
+            }
+            paths.push(scriptFileName);
+        });
+        gulp.src(paths)
+            .pipe(uglify())
+            .pipe(concat(chunkName + '.js'))
+            //.on('error', swallowError)
+            .pipe(gulp.dest(config.js.dest))
+    })
 
+});
 
 gulp.task('django-runserver', function () {
     if (!process.env['VIRTUAL_ENV']) {
@@ -100,8 +132,6 @@ gulp.task('django-runserver', function () {
         let args = ["src/manage.py", "runserver", djangoAddress];
         let python = process.env['VIRTUAL_ENV'] + '/bin/python';
         let runserver = spawn(python, args, {stdio: "inherit"});
-        console.log(runserver, 'runserver');
-        console.log(process.env['VIRTUAL_ENV'], 'process');
         runserver.on('close', function (code) {
             if (code !== 0) {
                 console.error('Django runserver exited with error code: ' + code);
@@ -123,6 +153,7 @@ gulp.task('browsersync', ['django-runserver'], function () {
 
 gulp.task('watch', function () {
     gulp.watch(config.sass.watch, ['sass:dev']);
+    gulp.watch(config.js.src, ['js:dev']);
 });
 
 

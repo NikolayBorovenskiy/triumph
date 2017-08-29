@@ -21,7 +21,7 @@
         <div class="block-content__list-description">
             <h3><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
             <small>{{ obj.date_created|date:"d.m.Y" }}</small>
-            <p class="list-description__content">{{ obj.content|truncatechars:420 }}</p>
+            <p class="list-description__content">{{ obj.content | striptags | safe | truncatechars:420 }}</p>
         </div>
     </div>
 </div>

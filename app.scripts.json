@@ -1,0 +1,12 @@
+{
+  "chunks": {
+    "vendor": [
+      "jquery",
+      "slick-carousel"
+    ]
+  },
+  "paths": {
+    "jquery": "src/triumph/static/vendor/jquery/dist/jquery.min.js",
+    "slick-carousel": "src/triumph/static/vendor/slick-carousel/slick/slick.min.js"
+  }
+}

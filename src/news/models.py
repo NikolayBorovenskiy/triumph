@@ -3,6 +3,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
 
+from ckeditor.fields import RichTextField
 from core.models import DateTimeMixin
 from core.utils import upload_location, pre_save_post_receiver, create_slug
 
@@ -15,8 +16,9 @@ class News(DateTimeMixin):
                               height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    content = models.TextField(verbose_name=u'Контент', null=True, blank=True)
-    slug = models.SlugField(editable=False, unique=True, null=True, blank=True, max_length=255)
+    content = RichTextField(verbose_name=u'Контент', null=True, blank=True)
+    slug = models.SlugField(editable=False, unique=True, null=True, blank=True,
+                            max_length=255)
     
     def __unicode__(self):
         return self.title

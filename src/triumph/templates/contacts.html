@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block jquery %}
-    var image = 'static/img/map_icon.png';
+    var image = '/static/img/map_icon.png';
     var $container = $('#map');
     $container.height($container.width()*0.7 + 'px');
 
@@ -27,7 +27,6 @@
         geocoder.geocode( { 'address': address}, function(results, status) {
           console.log(results);
           if (status == 'OK') {
-            console.log(results[0].geometry.location)
             map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({
                 position: results[0].geometry.location,

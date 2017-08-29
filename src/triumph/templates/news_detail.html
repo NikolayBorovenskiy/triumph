@@ -8,7 +8,7 @@
             <img src="{{ instance.image.url }}" alt="{{ instance.title }}" class="pull-left img-responsive postImg img-thumbnail margin10">
         {% endif %}
         <article>
-            <p>{{ instance.content }}</p>
+            <p>{{ instance.content | safe }}</p>
         </article>
 
     </div>

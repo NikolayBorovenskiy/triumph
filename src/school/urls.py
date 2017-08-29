@@ -6,6 +6,6 @@ from .views import (
 )
 
 urlpatterns = [
-    url(r'^about-us$', coaches_list, name='coach-list'),
-    url(r'^contacts$', contacts_list, name='contact-list'),
+    url(r'^about-us$', coaches_list, name='coaches'),
+    url(r'^contacts$', contacts_list, name='contacts'),
 ]

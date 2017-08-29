@@ -39,12 +39,15 @@
     "gulp-postcss": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
+    "gulp-concat": "~2.6.0",
     "gulp-uglify": "latest",
     "style-loader": "latest",
     "expose-loader": "latest",
     "sass-loader": "latest",
     "webpack": "latest",
     "webpack-stream": "latest",
-    "yargs": "latest"
+    "yargs": "latest",
+    "lodash": "~3.10.0",
+    "event-stream": "~3.3.1"
   }
 }

@@ -1,10 +1,15 @@
 from django.contrib import admin
-from .models import Schedule, Event
+from .models import Schedule, Event, Room
+
+
+class EventInLine(admin.TabularInline):
+    model = Event
 
 
 class ScheduleModelAdmin(admin.ModelAdmin):
-    list_display = ["title"]
+    list_display = ["title", "room"]
     filter_horizontal = ('work_days', 'rest_days',)
+    inlines = [EventInLine]
     
     class Meta:
         model = Schedule
@@ -17,5 +22,13 @@ class EventModelAdmin(admin.ModelAdmin):
         model = Event
 
 
+class RoomModelAdmin(admin.ModelAdmin):
+    list_display = ["name", "number"]
+    
+    class Meta:
+        model = Room
+
+
 admin.site.register(Schedule, ScheduleModelAdmin)
 admin.site.register(Event, EventModelAdmin)
+admin.site.register(Room, RoomModelAdmin)

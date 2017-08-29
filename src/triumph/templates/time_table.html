@@ -5,41 +5,98 @@
 {% endblock head_title %}
 
 {% block jquery %}
-    var timetable = new Timetable(),
-        startTime = '{{ timetable.start }}',
-        endTime = '{{ timetable.end }}',
-        workDays = '{{ days }}',
-        startTimeHour = startTime.split(':')[0],
-        endTimeHour = endTime.split(':')[0];
+    <!--var timetable = new Timetable(),-->
+        <!--startTime = '{{ timetable.start }}',-->
+        <!--endTime = '{{ timetable.end }}',-->
+        <!--workDays = '{{ days }}',-->
+        <!--startTimeHour = startTime.split(':')[0],-->
+        <!--endTimeHour = endTime.split(':')[0];-->
 
-    timetable.setScope(parseInt(startTimeHour, 10), parseInt(endTimeHour, 10));
-    timetable.addDays(workDays.split(','));
-    {% for event in events %}
-        var _start = '{{ event.start }}'.split(':');
-        var start = new Date;
-        start.setHours(_start[0]);
-        start.setMinutes(_start[1]);
+    <!--timetable.setScope(parseInt(startTimeHour, 10), parseInt(endTimeHour, 10));-->
+    <!--timetable.addDays(workDays.split(','));-->
+    <!--{% for event in events %}-->
+        <!--var _start = '{{ event.start }}'.split(':');-->
+        <!--var start = new Date;-->
+        <!--start.setHours(_start[0]);-->
+        <!--start.setMinutes(_start[1]);-->
 
-        var _finish = '{{ event.finish }}'.split(':');
-        var finish = new Date;
-        finish.setHours(_finish[0]);
-        finish.setMinutes(_finish[1]);
-        {% for day in event.day.all %}
-            timetable.addEvent('{{ event.name }}', '{{ event.color }}', '{{ day.title }}', start, finish, '{{ event.coach.last_name }}', '{{ event.additional_info }}', { url: '#' });
+        <!--var _finish = '{{ event.finish }}'.split(':');-->
+        <!--var finish = new Date;-->
+        <!--finish.setHours(_finish[0]);-->
+        <!--finish.setMinutes(_finish[1]);-->
+        <!--{% for day in event.day.all %}-->
+            <!--timetable.addEvent('{{ event.name }}', '{{ event.color }}', '{{ day.title }}', start, finish, '{{ event.coach.last_name }}', '{{ event.additional_info }}', { url: '#' });-->
+        <!--{% endfor %}-->
+
+    <!--{% endfor %}-->
+    <!--//timetable.addEvent('контемп', 'среда', new Date(2017,7,17,11,00), new Date(2017,7,17,12,45), { url: '#' });-->
+    <!--var _timetable = '{{ timetable.start }}';-->
+
+
+    <!--var renderer = new Timetable.Renderer(timetable);-->
+    <!--renderer.draw('.timetable');-->
+
+
+    {% for schedule in schedules %}
+        var $wrap = $('.timetable-wrapper'),
+            timetableData = {},
+            usageId = "timetable" + {{ forloop.counter }},
+            timetableBlock = document.createElement('div');
+
+        $(timetableBlock)
+            .addClass('timetable-block')
+            .appendTo($wrap);
+
+        var titleDiv =  document.createElement('div'),
+            title = document.createElement('h2');
+
+        $(titleDiv)
+            .addClass('block-content__title')
+            .appendTo(timetableBlock);
+
+        $(title)
+            .html('{{ schedule.room }}')
+            .appendTo(titleDiv);
+
+        $(timetableBlock).append('<div id=' + usageId + ' class="timetable"></div>');
+
+        timetableData.startTime = '{{ schedule.start }}';
+        timetableData.endTime = '{{ schedule.end }}';
+        timetableData.work_days = [];
+
+        {% for day in schedule.work_days.all %}
+            timetableData.work_days.push('{{ day.title }}');
         {% endfor %}
 
+        timetableData.events = [];
+
+        {% for event in schedule.event_set.all %}
+            var _start = '{{ event.start }}'.split(':');
+            var start = new Date;
+            start.setHours(_start[0]);
+            start.setMinutes(_start[1]);
+            var _finish = '{{ event.finish }}'.split(':');
+            var finish = new Date;
+            finish.setHours(_finish[0]);
+            finish.setMinutes(_finish[1]);
+            {% for day in event.day.all %}
+                timetableData.events.push({
+                    'start': start,
+                    'finish': finish,
+                    'color': '{{ event.color }}',
+                    'name': '{{ event.name }}',
+                    'day': '{{ day.title }}',
+                    'coach': '{{ event.coach.last_name }}',
+                    'info': '{{ event.additional_info }}'
+                });
+            {% endfor %}
+        {% endfor %}
+        $('#' + usageId).generateTimetable(timetableData);
     {% endfor %}
-    //timetable.addEvent('контемп', 'среда', new Date(2017,7,17,11,00), new Date(2017,7,17,12,45), { url: '#' });
-    var _timetable = '{{ timetable.start }}';
-
-
-    var renderer = new Timetable.Renderer(timetable);
-    renderer.draw('.timetable');
 {% endblock jquery %}
 
 
 {% block content %}
 <div class="timetable-wrapper">
-    <div class="timetable"></div>
 </div>
 {% endblock content %}

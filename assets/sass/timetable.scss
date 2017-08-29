@@ -22,8 +22,13 @@ $timetable-entry-color-hover: darken($timetable-entry-color, 10%) !default;
 $timetable-entry-border: 1px solid #B0BEC5 !default;
 $timetable-entry-padding: 10px !default;
 
-.timetable-wrapper {
-  //display: flex;
+.timetable-block {
+  &:last-child {
+    margin: 0;
+  }
+  & {
+    margin-bottom: 30px;
+  }
 }
 
 .timetable {
@@ -183,7 +188,7 @@ $timetable-entry-padding: 10px !default;
       &:hover {
         background-color: $timetable-entry-color-hover;
       }
-      .event-name{
+      .event-name {
         font-size: 90%;
       }
       .event-coach {

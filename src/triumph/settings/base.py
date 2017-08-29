@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     # third-party apps
     'allauth',
     'allauth.account',
-    'cmstemplates',
     'widget_tweaks',
     'ckeditor',
     'ckeditor_uploader',
@@ -52,8 +51,8 @@ INSTALLED_APPS = [
     'articles',
     'styles',
     'school',
-    'attainments',
-    'timetable'
+    'timetable',
+    'attainments'
 ]
 
 AUTH_USER_MODEL = 'users.User'

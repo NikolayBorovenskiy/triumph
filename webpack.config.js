@@ -5,6 +5,9 @@ let autoprefixer = require('autoprefixer');
 
 let webpackConfig = {
     context: __dirname,
+    entry: {
+        app: ['./assets/js/timetable.js'],
+    },
     output: {
         filename: '[name].js',
         library: '[name]'
