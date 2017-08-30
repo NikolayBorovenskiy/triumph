@@ -5,7 +5,7 @@ from .models import Attainments
 
 def attainment_detail(request):
     qs = Attainments.objects.all()
-    instance = None
+    instance, photo_qs = None
     if qs:
         instance = qs[0]
         photo_qs = instance.photo_set.all()
