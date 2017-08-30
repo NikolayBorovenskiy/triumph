@@ -87,7 +87,7 @@ let productionConfig = Object.assign({}, webpackConfig, {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new webpack.optimize.OccurenceOrderPlugin(),
+       // new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({compressor: {warnings: false}})
     ])
 });
