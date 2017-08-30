@@ -11,6 +11,5 @@ def school_contacts(request):
             'address': contacts.address.split(','),
             'phones': contacts.phones.split(','),
         }
-    else:
-        contacts = None
+
     return {'contacts': context}

@@ -45,9 +45,6 @@ def is_view(context, view_name=None, namespace=None, output='active', **kwargs):
     """
     resolver_match = resolve(context['request'].path)
     
-    print(view_name, 'view_name')
-    print(namespace, 'namespace')
-    
     if not view_name and namespace and resolver_match.namespace in namespace.split(','):
         return output
     
