@@ -5,8 +5,10 @@ from .models import Attainments
 
 def attainment_detail(request):
     qs = Attainments.objects.all()
-    instance = qs[0] if qs else None
-    photo_qs = instance.photo_set.all()
+    instance = None
+    if qs:
+        instance = qs[0]
+        photo_qs = instance.photo_set.all()
     context = {
         'instance': instance,
         'title': u'Достижения',
