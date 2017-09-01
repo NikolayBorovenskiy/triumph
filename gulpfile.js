@@ -158,8 +158,8 @@ gulp.task('watch', function () {
 
 
 // Run in development
-gulp.task('default', ['sass:dev', 'js:dev', 'django-runserver', 'browsersync', 'watch']);
+gulp.task('default', ['sass:dev', 'js:dev', 'django-runserver', 'browsersync', 'watch', 'vendor']);
 
 
 // Run before deploy to production
-gulp.task('bundle', ['sass:prod', 'js:prod']);
+gulp.task('bundle', ['sass:prod', 'js:prod', 'vendor']);

@@ -48,7 +48,7 @@
                         };
                         header.addEventListener(animEndEventName, onEndHeaderAnimation);
                     }
-                }, 150);
+                }, 80);
         };
 
         loader.setProgressFn(simulationFn);

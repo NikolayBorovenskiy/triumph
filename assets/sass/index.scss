@@ -25,11 +25,24 @@ body {
   margin: 0;
   color: #e3e3e3;
   font: 14px/1.455 Proxima Nova, 'Tenor Sans', Arial, sans-serif;
-  background: #000 url(../img/background.jpg) 0 -40% repeat-y;
-  background-size: cover;
+  background: #000;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: none;
-  height: 100vh;
+  position: relative;
+
+  &:before{
+    display: block;
+    content: '';
+    position: absolute;
+    background: url(../img/background/bg-noise.jpg) no-repeat;
+    top: 80px;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    z-index: -1;
+    background-size: 90%;
+    opacity: .9;
+  }
 }
 
 p {
