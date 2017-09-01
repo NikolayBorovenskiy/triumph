@@ -8,7 +8,7 @@ ADMINS = ()
 
 MANAGERS = ()
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['188.226.142.203', 'triumph-school.com']
 
 DATABASES = {
     'default': dj_database_url.parse(e.get('DJANGO_DB')),
