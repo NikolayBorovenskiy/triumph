@@ -36,7 +36,7 @@
         <!-- initial header -->
         <header class="ip-header">
             <h1 class="ip-logo">
-                <img src="{% static 'img/logo.png' %}" height="122" width="312" alt="Triumph" class="ip-inner">
+                <img src="{% static 'img/logo.svg' %}" height="122" width="312" alt="Triumph" class="ip-inner">
             </h1>
             <div class="ip-loader">
                 <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
@@ -61,7 +61,9 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <div class="navbar-header__logo clearfix">
-                                    <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" height="122" width="312" alt="Triumph" class="logo"></a>
+                                    <a class="navbar-brand" href="{% url 'home' %}">
+                                        <img src="{% static 'img/logo.svg' %}" height="122" width="312" alt="Triumph" class="logo">
+                                    </a>
                                 </div>
                             </div>
                             <div id="navbar" class="navbar-collapse collapse">

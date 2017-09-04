@@ -23,6 +23,12 @@
 }
 
 .ip-logo {
+  .ip-inner {
+    transform: scale(7, 7);
+  }
+}
+
+.ip-logo {
   top: 0;
   height: 100%;
   transform: translate3d(0, 25%, 0);
@@ -167,41 +173,45 @@
   }
 }
 
-
 /* Content animations */
 .loaded .ip-main .wrapper .header,
 .loaded .ip-main .wrapper .sub-navigation,
 .loaded .ip-main .wrapper .main,
-.loaded .ip-main .footer
-{
-	-webkit-animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
-	animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+.loaded .ip-main .footer {
+  -webkit-animation: animLoadedContent 1s cubic-bezier(0.7, 0, 0.3, 1) both;
+  animation: animLoadedContent 1s cubic-bezier(0.7, 0, 0.3, 1) both;
 }
 
 .loaded .ip-main .wrapper .header,
 .loaded .ip-main .wrapper .sub-navigation {
-	-webkit-animation-delay: 0.1s;
-	animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 
 .loaded .ip-main .wrapper .main {
-	-webkit-animation-delay: 0.15s;
-	animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
 }
 
 .loaded .ip-main .footer {
-	-webkit-animation-delay: 0.2s;
-	animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 @-webkit-keyframes animLoadedContent {
-	from { opacity: 0; -webkit-transform: translate3d(0,200px,0); }
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+  }
 }
 
 @keyframes animLoadedContent {
-	from { opacity: 0; -webkit-transform: translate3d(0,200px,0); transform: translate3d(0,200px,0); }
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 200px, 0);
+    transform: translate3d(0, 200px, 0);
+  }
 }
-
 
 .layout-switch .ip-header {
   position: absolute;
@@ -223,6 +233,6 @@
   fill: #fff;
 }
 
-.dontLoad .ip-header{
+.dontLoad .ip-header {
   display: none;
 }
