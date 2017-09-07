@@ -1,6 +1,7 @@
 .header {
   color: #ffca3e;
   position: relative;
+  z-index: 0;
   .container {
     padding: 18px 15px 10px 80px;
   }
@@ -32,7 +33,7 @@
   }
   .navbar-header__logo {
     position: relative;
-    z-index: 0;
+
   }
   .navbar-header__logo:before {
     content: '';
