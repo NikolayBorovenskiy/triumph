@@ -17,6 +17,7 @@ let webpack_stream = require('webpack-stream');
 let webpackConfig = require('./webpack.config.js');
 let _ = require('lodash');
 let fs = require('fs');
+let gzip = require('gulp-gzip');
 
 let spawn = require('child_process').spawn;
 let argv = require('yargs')
@@ -26,6 +27,11 @@ let argv = require('yargs')
     .argv;
 
 let scripts = require('./app.scripts.json');
+
+let gzipConfig = {
+  threshold: '1kb'
+};
+
 
 let djangoAddress = argv.host + ":" + argv.port;
 let config = {
@@ -102,6 +108,7 @@ gulp.task('sass:prod', function () {
         .pipe(postcss([ autoprefixer({ browsers: ['>1%'] }) ]))
         .pipe(rename(config.sass.destProdFileName))
         .pipe(cssmin())
+        .pipe(gzip(config))
         .pipe(gulp.dest(config.sass.dest))
 });
 
