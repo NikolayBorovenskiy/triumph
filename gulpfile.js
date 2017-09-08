@@ -49,30 +49,25 @@ let config = {
         dest: './src/triumph/static/build/'
     },
     img: {
-        src: './assets/img/*',
+        src: './assets/img/**/*',
         dest: './src/triumph/static/img/'
     }
 };
 
 //gulp.task('js:dev', function () {
-//    let cfg = Object.assign({}, webpackConfig.development, {entry: config.js.entry});
-//
-//    return gulp.src(config.js.src)
-//        .pipe(webpack_stream(cfg))
-//        .on('error', function (error) {
-//            console.log(error.message);
-//            this.emit('end');
-//        })
-//        .pipe(gulp.dest(config.js.dest))
-//});
+//    let cfg = Object.assign({}, webpackConfig.development, {entry:
+// config.js.entry});  return gulp.src(config.js.src)
+// .pipe(webpack_stream(cfg)) .on('error', function (error) {
+// console.log(error.message); this.emit('end'); })
+// .pipe(gulp.dest(config.js.dest)) });
 
-gulp.task('js:dev', function(){
+gulp.task('js:dev', function() {
     return es.merge(gulp.src(config.js.src))
         .pipe(concat('app.js'))
         .pipe(gulp.dest(config.js.dest));
 });
 
-gulp.task('js:prod', function(){
+gulp.task('js:prod', function() {
     return es.merge(gulp.src(config.js.src))
         .pipe(uglify())
         .pipe(concat('app.js'))
@@ -81,42 +76,44 @@ gulp.task('js:prod', function(){
 
 gulp.task('img:compress', function() {
         gulp.src(config.img.src)
-            .pipe(imagemin())
+            .pipe(imagemin({
+                optimizationLevel: 3,
+                progressive: true,
+                interlaced: true
+            }))
             .pipe(gulp.dest(config.img.dest))
     }
 );
 
 //gulp.task('js:prod', function () {
-//    let cfg = Object.assign({}, webpackConfig.production, {entry: config.js.entry});
-//    return gulp.src(config.js.src)
-//        .pipe(webpack_stream(cfg))
-//        .pipe(gulp.dest(config.js.dest));
-//});
+//    let cfg = Object.assign({}, webpackConfig.production, {entry:
+// config.js.entry}); return gulp.src(config.js.src) .pipe(webpack_stream(cfg))
+// .pipe(gulp.dest(config.js.dest)); });
 
-gulp.task('sass:dev', function () {
+gulp.task('sass:dev', function() {
     return gulp.src(config.sass.src)
         .pipe(plumber())
         .pipe(sass(config.sass.sassOptions).on('error', sass.logError))
-        .pipe(postcss([ autoprefixer({ browsers: ['>1%'] }) ]))
+        .pipe(postcss([autoprefixer({browsers: ['>1%']})]))
         .pipe(rename(config.sass.destDevFileName))
         .pipe(gulp.dest(config.sass.dest))
         .pipe(browserSync.stream())
 });
 
 
-gulp.task('sass:prod', function () {
+gulp.task('sass:prod', function() {
     return gulp.src(config.sass.src)
         .pipe(sass(config.sass.sassOptions))
-        .pipe(postcss([ autoprefixer({ browsers: ['>1%'] }) ]))
+        .pipe(postcss([autoprefixer({browsers: ['>1%']})]))
         .pipe(rename(config.sass.destProdFileName))
         .pipe(cssmin())
         .pipe(gulp.dest(config.sass.dest))
 });
 
-gulp.task('vendor', function(){
-    _.forIn(scripts.chunks, function(chunkScripts, chunkName){
+gulp.task('vendor', function() {
+    _.forIn(scripts.chunks, function(chunkScripts, chunkName) {
         var paths = [];
-        chunkScripts.forEach(function(script){
+        chunkScripts.forEach(function(script) {
             var scriptFileName = scripts.paths[script];
             if (!fs.existsSync(__dirname + '/' + scriptFileName)) {
 
@@ -133,14 +130,14 @@ gulp.task('vendor', function(){
 
 });
 
-gulp.task('django-runserver', function () {
+gulp.task('django-runserver', function() {
     if (!process.env['VIRTUAL_ENV']) {
         console.warn("WARNING: To run django you should activate virtual environment")
     } else {
         let args = ["src/manage.py", "runserver", djangoAddress];
         let python = process.env['VIRTUAL_ENV'] + '/bin/python';
         let runserver = spawn(python, args, {stdio: "inherit"});
-        runserver.on('close', function (code) {
+        runserver.on('close', function(code) {
             if (code !== 0) {
                 console.error('Django runserver exited with error code: ' + code);
             } else {
@@ -151,7 +148,7 @@ gulp.task('django-runserver', function () {
 });
 
 
-gulp.task('browsersync', ['django-runserver'], function () {
+gulp.task('browsersync', ['django-runserver'], function() {
     browserSync.init({
         proxy: djangoAddress,
         port: argv['bsync-port']
@@ -159,7 +156,7 @@ gulp.task('browsersync', ['django-runserver'], function () {
 });
 
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     gulp.watch(config.sass.watch, ['sass:dev']);
     gulp.watch(config.js.src, ['js:dev']);
 });
