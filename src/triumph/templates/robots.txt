@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /admin
-Host: http://{{ request.site.domain }}/
+Host: www.triumph-school.com
+
+Sitemap: http://www.triumph-school.com/sitemap.xml
