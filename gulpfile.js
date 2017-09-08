@@ -7,6 +7,7 @@ let concat = require('gulp-concat');
 let notify = require('gulp-notify');
 let plumber = require('gulp-plumber');
 let cssmin = require('gulp-cssmin');
+let imagemin = require('gulp-imagemin');
 let rename = require("gulp-rename");
 let sass = require('gulp-sass');
 let postcss = require('gulp-postcss');
@@ -46,9 +47,12 @@ let config = {
         },
         watch: './assets/js/**/*.jsx?',
         dest: './src/triumph/static/build/'
+    },
+    img: {
+        src: './assets/img/*',
+        dest: './src/triumph/static/img/'
     }
 };
-
 
 //gulp.task('js:dev', function () {
 //    let cfg = Object.assign({}, webpackConfig.development, {entry: config.js.entry});
@@ -75,7 +79,12 @@ gulp.task('js:prod', function(){
         .pipe(gulp.dest(config.js.dest));
 });
 
-
+gulp.task('img:compress', function() {
+        gulp.src(config.img.src)
+            .pipe(imagemin())
+            .pipe(gulp.dest(config.img.dest))
+    }
+);
 
 //gulp.task('js:prod', function () {
 //    let cfg = Object.assign({}, webpackConfig.production, {entry: config.js.entry});
@@ -83,7 +92,6 @@ gulp.task('js:prod', function(){
 //        .pipe(webpack_stream(cfg))
 //        .pipe(gulp.dest(config.js.dest));
 //});
-
 
 gulp.task('sass:dev', function () {
     return gulp.src(config.sass.src)
@@ -158,8 +166,8 @@ gulp.task('watch', function () {
 
 
 // Run in development
-gulp.task('default', ['sass:dev', 'js:dev', 'django-runserver', 'browsersync', 'watch', 'vendor']);
+gulp.task('default', ['img:compress', 'sass:dev', 'js:dev', 'django-runserver', 'browsersync', 'watch', 'vendor']);
 
 
 // Run before deploy to production
-gulp.task('bundle', ['sass:prod', 'js:prod', 'vendor']);
+gulp.task('bundle', ['img:compress', 'sass:prod', 'js:prod', 'vendor']);

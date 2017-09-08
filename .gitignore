@@ -82,3 +82,4 @@ target/
 
 !**/static/vendor/**/dist/
 src/triumph/static/build/
+src/triumph/static/img/
