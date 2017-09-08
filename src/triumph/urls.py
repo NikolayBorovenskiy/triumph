@@ -16,6 +16,7 @@ handler500 = 'core.views.server_error'
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^robots.txt$', views.robots_txt, name='robots_txt'),
+    url(r'^sitemap.xml$', views.sitemap_xml, name='sitemap_xml'),
     
     url(r'^admin/', admin.site.urls),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
