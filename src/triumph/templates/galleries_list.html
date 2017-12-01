@@ -12,7 +12,7 @@
     <div class="row">
     {% for obj in object_list %}
         {% if obj.photo_set.all %}
-        <div class="col-md-4">
+        <div class="col-sm-4">
             <div class="thumbnail__block">
                 <a href="{{ obj.get_absolute_url }}" class="thumbnail">
                     <img class="block-content__list-img" src="{{ obj.get_cover_photo.image.url }}" alt="{{ obj.get_cover_photo.name }}">

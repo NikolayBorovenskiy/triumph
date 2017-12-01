@@ -17,18 +17,56 @@
 <section class="promo">
     <div class="container">
         <div class="row promo_row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-6">
                 <div class="promo__tango"></div>
             </div>
-            <div class="col-md-8">
+            <div class="col-sm-6 visible-sm visible-xs">
+                <div class="header__motto"> 
+                    <h3 class="fontsforweb_fontid_6771">С танцем по жизни!</h3> 
+                </div>
+            </div>
+            <div class="col-md-8 hidden-sm hidden-xs">
                 <div class="promo-wrapper">
                     <div class="promo-inner-wrapper">
                         <div id="promo-slider">
-                            {% for obj in slider_photos %}
-                            <div class="slide clearfix">
-                                <img class="img-responsive" src="{{ obj.image.url }}">
-                            </div>
-                            {% endfor %}
+                            <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="611" height="285" id="1" align="middle">
+                                <param name="movie" value='media/1.swf'/>
+                                <param name="quality" value="high"/>
+                                <param name="bgcolor" value="#ffffff"/>
+                                <param name="play" value="true"/>
+                                <param name="loop" value="true"/>
+                                <param name="wmode" value="window"/>
+                                <param name="scale" value="showall"/>
+                                <param name="menu" value="true"/>
+                                <param name="devicefont" value="false"/>
+                                <param name="salign" value=""/>
+                                <param name="allowScriptAccess" value="sameDomain"/>
+                                <!--[if !IE]>-->
+                                <object type="application/x-shockwave-flash" data='media/1.swf' width="611" height="285">
+                                    <param name="movie" value='media/1.swf'/>
+                                    <param name="quality" value="high"/>
+                                    <param name="bgcolor" value="#ffffff"/>
+                                    <param name="play" value="true"/>
+                                    <param name="loop" value="true"/>
+                                    <param name="wmode" value="window"/>
+                                    <param name="scale" value="showall"/>
+                                    <param name="menu" value="true"/>
+                                    <param name="devicefont" value="false"/>
+                                    <param name="salign" value=""/>
+                                    <param name="allowScriptAccess" value="sameDomain"/>
+                                    <!--<![endif]-->
+                                    <a href="http://www.adobe.com/go/getflash">
+                                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Загрузить Adobe Flash Player"/>
+                                    </a>
+                                    <!--[if !IE]>-->
+                                </object>
+                                <!--<![endif]-->
+                            </object>
+                            <!--{% for obj in slider_photos %}-->
+                            <!--<div class="slide clearfix">-->
+                                <!--<img class="img-responsive" src="{{ obj.image.url }}">-->
+                            <!--</div>-->
+                            <!--{% endfor %}-->
                         </div>
                     </div>
                 </div>

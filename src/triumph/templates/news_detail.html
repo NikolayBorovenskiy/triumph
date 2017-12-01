@@ -3,13 +3,16 @@
 {% block content %}
 <div class="row">
     <div class="col-md-10 blogShort">
-        <h2>{{ title }}</h2>
-        {% if instance.image %}
-            <img src="{{ instance.image.url }}" alt="{{ instance.title }}" class="pull-left img-responsive postImg img-thumbnail margin10">
-        {% endif %}
-        <article>
-            <p>{{ instance.content | safe }}</p>
-        </article>
+        <div class="news-detail">
+            <h2 class="news-detail__title">{{ title }}</h2>
+            {% if instance.image %}
+            <img src="{{ instance.image.url }}" alt="{{ instance.title }}" class="pull-left img-responsive postImg img-thumbnail">
+            {% endif %}
+            <article>
+                <p>{{ instance.content | safe }}</p>
+            </article>
+        </div>
+
 
     </div>
 </div>

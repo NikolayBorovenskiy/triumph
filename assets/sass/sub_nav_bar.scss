@@ -12,13 +12,13 @@
   background-color: rgba(8, 8, 8, 0.75);
   ul {
     a {
-      padding: 10px 10px;
+      transition: all 0.2s ease-in-out;
+      padding: 10px;
       color: #c2c2c2;
       text-align: center;
       &:hover {
-        background-color: transparent;
         color: #ffca3e;
-        background-color: rgba(39, 39, 39, 0.75);
+        background-color: rgba(39, 39, 39, 0.55);
       }
     }
   }

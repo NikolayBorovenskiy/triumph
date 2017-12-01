@@ -27,7 +27,7 @@
     </div>
     {% for obj in instance.coach_set.all %}
     <div class="row row__coaches_indent">
-        <div class="col-md-5">
+        <div class="col-sm-5">
             <div class="block-avatar">
                 <div class="block-avatar__photo_wrapper">
                     <div class="block-avatar__photo">
@@ -40,7 +40,7 @@
             </div>
 
         </div>
-        <div class="col-md-7">
+        <div class="col-sm-7">
             <div class="block-content__list-description">
                 <!--<div class="list-description__name list-description__name_indent">-->
                     <!--<h4 class="fontsforweb_fontid_6771">{{ obj.first_name }} {{ obj.last_name }}</h4>-->
@@ -68,7 +68,7 @@
     <div class="dance-hall__gallery">
         <div class="row">
             {% for obj in instance.hall.image_set.all %}
-                <div class="col-md-6">
+                <div class="col-sm-6">
                     <div class="gallery__image">
                         <img class="img-responsive" src="{{ obj.image.url }}" alt="">
                     </div>

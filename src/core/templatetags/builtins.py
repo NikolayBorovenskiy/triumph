@@ -45,14 +45,16 @@ def is_view(context, view_name=None, namespace=None, output='active', **kwargs):
     """
     resolver_match = resolve(context['request'].path)
     
-    if not view_name and namespace and resolver_match.namespace in namespace.split(','):
+    if not view_name and namespace and resolver_match.namespace in namespace.split(
+            ','):
         return output
     
     if view_name and resolver_match.url_name in view_name:
         if all(resolver_match.kwargs[k] == kwargs[k] for k in kwargs.keys()):
             return output
-        
-    if view_name and namespace and resolver_match.url_name in view_name and resolver_match.namespace in namespace.split(','):
+    
+    if view_name and namespace and resolver_match.url_name in view_name and resolver_match.namespace in namespace.split(
+            ','):
         return output
     
     return ''
@@ -113,4 +115,4 @@ def make_agree_with_number(word, number):
 
 @register.inclusion_tag('tags/news.html')
 def get_news_list():
-    return {'object_list': News.objects.all()[:4]}
+    return {'object_list': News.objects.all()[:3]}
