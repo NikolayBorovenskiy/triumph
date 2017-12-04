@@ -1,17 +1,14 @@
 .footer {
-  background: #000 url(../img/footer_background.jpg) 50% 0;
-  background-repeat: no-repeat;
+  background: #000 url(../img/footer_background.jpg) no-repeat 50% 0;
   color: #b5b2b2;
   font-size: 12px;
   .footer_wrapper {
     border-top: 1px solid #2f2e2e;
-    padding: 20px 10px 10px 43px;
+    padding: 20px 10px 0 43px;
   }
   .list {
     list-style-type: none;
     padding: 0;
-
-
   }
   .footer__copywright {
     float: left;

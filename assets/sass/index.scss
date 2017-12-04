@@ -6,14 +6,17 @@
 @import "promo_sliderQueries.scss";
 @import "sub_nav_bar.scss";
 @import "sub_nav_barQueries.scss";
-@import "content";
-@import "main";
-@import "mainQueries";
+@import "content.scss";
+@import "contentQueries.scss";
+@import "main.scss";
+@import "mainQueries.scss";
 @import "footer.scss";
+@import "footerQueries.scss";
 @import "responsive_colunm_bootstrap.scss";
 @import "fonts.scss";
 @import "pagination.scss";
 @import "media.scss";
+@import "mediaQueries.scss";
 @import "dance-styles.scss";
 @import "dance-stylesQueries.scss";
 @import "about-us.scss";
@@ -35,21 +38,7 @@ body {
   background: #000;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: none;
-  position: relative;
   min-height: 100vh;
-  &:before{
-    display: block;
-    content: '';
-    position: absolute;
-    background: url(../img/background/bg-noise.jpg) no-repeat;
-    top: 80px;
-    bottom: 0;
-    left: 10%;
-    right: 0;
-    z-index: -1;
-    background-size: 90%;
-    opacity: .9;
-  }
 }
 
 p {
@@ -68,6 +57,22 @@ p {
 
 .wrapper {
   flex-grow: 1;
+  position: relative;
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    background: url(../img/background/bg-noise.jpg) no-repeat;
+    top: 15%;
+    bottom: 0;
+    //left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    right: 0;
+    z-index: -1;
+    background-size: contain;
+    opacity: .9;
+  }
 }
 
 .reset-indents {

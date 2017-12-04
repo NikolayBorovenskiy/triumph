@@ -1,0 +1,13 @@
+/* Small phones: from 0 to 768px */
+@media only screen and (max-width: 768px) {
+  .slide__main-view {
+    height: 100%;
+    overflow: hidden;
+    img {
+      display: block;
+      margin: 0 auto;
+      height: auto;
+    }
+  }
+
+}

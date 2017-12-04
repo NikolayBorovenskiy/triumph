@@ -17,10 +17,14 @@
 <section class="promo">
     <div class="container">
         <div class="row promo_row">
-            <div class="col-md-4 col-sm-6">
-                <div class="promo__tango"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="promo__tango">
+                    <div class="header__motto visible-xs"> 
+                        <h3 class="fontsforweb_fontid_6771">С танцем по жизни!</h3> 
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-6 visible-sm visible-xs">
+            <div class="col-sm-6 col-xs-12 visible-sm">
                 <div class="header__motto"> 
                     <h3 class="fontsforweb_fontid_6771">С танцем по жизни!</h3> 
                 </div>
@@ -90,7 +94,6 @@
       fade: true,
       cssEase: 'linear'
     });
-
 {% endblock jquery %}
 
 {% block content %}
@@ -98,6 +101,6 @@
     <div class="main_page__text">
         {{ instance.promo|safe }}
     </div>
-    <div class="main_page__decor"></div>
+    <div class="main_page__decor hidden-xs"></div>
 </div>
 {% endblock content %}

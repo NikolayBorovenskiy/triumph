@@ -1,0 +1,8 @@
+/* Small phones: from 0 to 768px */
+@media only screen and (max-width: 768px) {
+  .main_page {
+    .main_page__text {
+      margin-bottom: 0;
+    }
+  }
+}

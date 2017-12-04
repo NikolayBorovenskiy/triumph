@@ -34,7 +34,7 @@ $slider.on( "click", function(event) {
     <!--{% endfor %}-->
 <!--</div>-->
     <div class="slide__main-view clearfix">
-        <img id="main-view" src="{{ cover_photo.image.url }}">
+        <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive">
     </div>
 <div class="slider-nav">
     {% for obj in instance.photo_set.all %}

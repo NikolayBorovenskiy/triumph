@@ -5,9 +5,9 @@
 {% endblock head_title %}
 
 {% block content %}
-<div class="row dance-style_indent">
+<div class="row">
     {% for obj in object_list %}
-    <div class="col-sm-6">
+    <div class="col-sm-6 dance-style_indent">
         <a class="dance-style_link" href="{{ obj.get_absolute_url }}">
             <div class="dance-style clearfix">
                 <div class="dance-style__image dance-style__image_indent">
@@ -24,7 +24,7 @@
             </div>
         </a>
     </div>
-    {%cycle "" "</div><div class='row dance-style_indent'>" %}
+    {%cycle "" "</div><div class='row'>" %}
     {% endfor %}
 </div>
 {% include "el_pagination/show_pages.html" %}

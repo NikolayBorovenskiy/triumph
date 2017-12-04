@@ -68,7 +68,7 @@
     <div class="dance-hall__gallery">
         <div class="row">
             {% for obj in instance.hall.image_set.all %}
-                <div class="col-sm-6">
+                <div class="col-sm-6 dance-hall__gallery_indent">
                     <div class="gallery__image">
                         <img class="img-responsive" src="{{ obj.image.url }}" alt="">
                     </div>

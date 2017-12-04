@@ -58,7 +58,12 @@
             .html('{{ schedule.room }}')
             .appendTo(titleDiv);
 
-        $(timetableBlock).append('<div id=' + usageId + ' class="timetable"></div>');
+        var wrapperDiv = document.createElement('div');
+        $(wrapperDiv)
+            .addClass('wrapper');
+
+        $(wrapperDiv).append('<div id=' + usageId + ' class="timetable"></div>');
+        $(wrapperDiv).appendTo(timetableBlock);
 
         timetableData.startTime = '{{ schedule.start }}';
         timetableData.endTime = '{{ schedule.end }}';

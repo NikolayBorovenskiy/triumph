@@ -12,26 +12,26 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        .message{
+        .message {
           flex-basis: 230px;
           padding: 18px;
           background: #242424;
           border-top: 10px solid #d0a836;
-          a{
+          a {
             color: #b9b9b9;
           }
-          .message__data{
+          .message__data {
             color: #595959;
             font-weight: 100;
           }
         }
       }
-      .news-block__messages_indent{
+      .news-block__messages_indent {
         margin-bottom: 24px;
       }
-      .news-block__controls{
+      .news-block__controls {
         width: 100%;
-        .all-message{
+        .all-message {
           display: table;
           margin: 0 auto;
           a {
@@ -41,11 +41,11 @@
             border-radius: 4px;
             color: #000;
             transition: all .3s ease-in-out;
-            &:hover{
+            &:hover {
               text-decoration: none;
               background: darken(#d0a836, 10%);
             }
-            &:active{
+            &:active {
               color: #fff;
             }
           }
@@ -55,7 +55,53 @@
   }
 }
 
-/* Small phones: from 0 to 480px */
-@media only screen and (max-width: 480px) {
+/* Small phones: from 0 to 768px */
+@media only screen and (max-width: 768px) {
+  .main{
+    .block-content{
+      padding-top: 0;
+      font-size: 14px;
+      .main_page{
+        .main_page__text{
+          padding-top: 0;
+          p{
+            font-size: 13px;
+            text-indent: 0;
+          }
+        }
+      }
+    }
+  }
 
+  .block-content__list-img{
+    margin-bottom: 15px;
+  }
+
+  .news {
+    .news-block {
+      .news-block__messages {
+        padding-left: 25px;
+        padding-right: 25px;
+        flex-direction: column;
+        justify-content: flex-start;
+        .message {
+          border: none;
+          flex-basis: auto;
+          position: relative;
+          &::before {
+            position: absolute;
+            content: '';
+            background: #5e5e5e;
+            left: 20px;
+            width: 180px;
+            height: 1px;
+            top: 0;
+          }
+          &:first-child {
+            border-top: 10px solid #d0a836;
+          }
+        }
+      }
+    }
+  }
 }

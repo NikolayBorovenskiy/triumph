@@ -3,14 +3,29 @@
   position: relative;
   z-index: 0;
   .container {
-    padding: 18px 15px 10px 80px;
+    padding: 0 15px 10px 80px;
   }
   .navbar-brand {
     height: auto;
     position: relative;
   }
   .navbar {
+    padding-top: 20px;
     margin-bottom: 0;
+  }
+  .navbar-header,
+  #navbar {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #navbar {
+    float: right;
+  }
+  .navbar-toggle {
+    z-index: 1;
+    &:hover {
+      background-color: #ffca3e;
+    }
   }
   .navbar-default {
     background: #000 url(../img/header_background.jpg) 53% 0;
@@ -36,13 +51,14 @@
   }
 
   .navbar-header__logo:before {
+    opacity: .5;
     content: '';
     position: absolute;
-    width: 600px;
-    height: 244px;
+    width: 372px;
+    height: 209px;
     background: url(../img/logo_shadow.png) 0 0 no-repeat;
-    top: -16px;
-    left: -40px;
+    top: -27px;
+    left: -14px;
   }
 
   .header__motto {

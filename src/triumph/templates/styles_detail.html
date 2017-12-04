@@ -28,7 +28,7 @@ return false;
         <div class="col-md-6">
             <div class="dance-styles-detail__carousel">
                 <div class="slide__main-view">
-                    <img id="main-view" src="{{ cover_photo.image.url }}">
+                    <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive">
                 </div>
                 <div class="slider-nav">
                     {% for obj in instance.photo_set.all %}
