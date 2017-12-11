@@ -190,6 +190,7 @@ $timetable-entry-padding: 10px !default;
       }
       .event-name {
         font-size: 90%;
+        text-shadow: #424242 1px 0 0px, #424242 0 1px 0px, #424242 -1px 0 0px, #424242 0 -1px 0px;
       }
       .event-coach {
         text-transform: uppercase;
@@ -199,6 +200,7 @@ $timetable-entry-padding: 10px !default;
       }
       .event-info {
         color: #D84315;
+        text-shadow: #FAFAFA 1px 0 0px, #FAFAFA 0 1px 0px, #FAFAFA -1px 0 0px, #FAFAFA 0 -1px 0px;
       }
     }
 
