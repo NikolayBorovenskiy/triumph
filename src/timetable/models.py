@@ -68,7 +68,10 @@ class Event(models.Model):
     coach = models.ForeignKey(Coach, verbose_name=u'Преподаватель', blank=True,
                               null=True)
     additional_info = models.CharField(
-        verbose_name=u'Дополнительная информация', max_length=255, blank=True,
+        verbose_name=u'Дополнительная информация',
+        max_length=255,
+        default=u'',
+        blank=True,
         null=True)
     color = models.CharField(verbose_name=u'Цвет', max_length=15, choices=(
         ('#EF5350', u'красный'), ('#AB47BC', u'фиолетовый'),
