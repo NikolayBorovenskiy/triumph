@@ -45,8 +45,8 @@
   }
 }
 
-/* Small phones: from 0 to 768 */
-@media only screen and (max-width: 768px) {
+/* Small phones: from 0 to 767px */
+@media only screen and (max-width: 767px) {
   .sub-navigation__nav{
     background-color: rgba(255, 202, 62, 0.75);
     ul {

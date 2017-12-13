@@ -4,7 +4,7 @@
   font-size: 12px;
   .footer_wrapper {
     border-top: 1px solid #2f2e2e;
-    padding: 20px 10px 0 43px;
+    padding: 20px 5% 2% 8%;
   }
   .list {
     list-style-type: none;
@@ -23,6 +23,7 @@
     }
   }
   .footer__address {
+    margin-bottom: 0;
     float: right;
   }
   .address__phones, .address__address {
