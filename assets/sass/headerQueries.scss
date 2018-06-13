@@ -38,10 +38,9 @@
     }
     .navbar {
       .navbar-header__logo {
-        margin: 0;
-        .logo {
-          height: 85px;
-        }
+        margin: 15px 0 0 15px;
+        height: 85px;
+        background-size: auto 85px;
       }
     }
   }
