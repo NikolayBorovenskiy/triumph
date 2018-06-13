@@ -14,8 +14,6 @@ let postcss = require('gulp-postcss');
 let autoprefixer = require('autoprefixer');
 let path = require('path');
 let browserSync = require('browser-sync').create();
-let webpack_stream = require('webpack-stream');
-let webpackConfig = require('./webpack.config.js');
 let _ = require('lodash');
 let fs = require('fs');
 

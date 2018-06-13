@@ -35,15 +35,17 @@
     <div class="attaintment__intro">
         {{ instance.intro | safe }}
     </div>
-    <div class="attaintment__diploma attaintment__diploma_indent">
-        <div class="slider-nav">
-            {% for obj in instance.diploma_set.all %}
-            <div class="slide clearfix">
-                <img class="img-responsive" src="{{ obj.image.url }}">
+    {% if instance.diploma_set.all %}
+        <div class="attaintment__diploma attaintment__diploma_indent">
+            <div class="slider-nav">
+                {% for obj in instance.diploma_set.all %}
+                <div class="slide clearfix">
+                    <img class="img-responsive" src="{{ obj.image.url }}">
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
+    {% endif %}
     <div class="attaintment__content">
         {{ instance.content | safe }}
     </div>
