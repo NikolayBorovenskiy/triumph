@@ -49,9 +49,15 @@
     color: #ffca3e;
   }
   .dance-styles-detail__carousel {
+    float: left;
     background-color: #3f3f3f;
     padding: 8px;
   }
+
+  .dance-styles-detail__carousel_indent{
+    margin: 0 20px 20px 0;
+  }
+
   .dance-styles-detail__text {
     line-height: 25px;
   }

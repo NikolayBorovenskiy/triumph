@@ -23,30 +23,27 @@ return false;
 {% endblock jquery %}
 
 {% block content %}
-<div class="dance-styles-detail">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="dance-styles-detail__carousel">
-                <div class="slide__main-view">
-                    <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive" alt="{{ cover_photo.name }}">
-                </div>
-                <div class="slider-nav">
-                    {% for obj in instance.photo_set.all %}
-                    <div class="slide clearfix">
-                        <img class="img-responsive" src="{{ obj.image.url }}" alt="{{ obj.name }}">
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+<div class="dance-styles-detail clearfix">
+    <div class="dance-styles-detail__carousel dance-styles-detail__carousel_indent">
+        <div class="slide__main-view">
+            <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive" alt="{{ cover_photo.name }}">
         </div>
-        <div class="col-md-6">
-            <div class="dance-styles-detail__title ">
-                <h3 class="fontsforweb_fontid_6771">{{ title }}</h3>
+        <div class="slider-nav">
+            {% for obj in instance.photo_set.all %}
+            <div class="slide clearfix">
+                <img class="img-responsive" src="{{ obj.image.url }}" alt="{{ obj.name }}">
             </div>
-            <div class="dance-styles-detail__text">
-                {{ instance.content|safe }}
-            </div>
+            {% endfor %}
         </div>
     </div>
+    <div class="dance-styles-detail__info">
+        <div class="dance-styles-detail__title ">
+            <h3 class="fontsforweb_fontid_6771">{{ title }}</h3>
+        </div>
+        <p class="dance-styles-detail__text">
+            {{ instance.content|safe }}
+        </p>
+    </div>
+
 </div>
 {% endblock content %}
