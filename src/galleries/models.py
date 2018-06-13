@@ -48,5 +48,4 @@ class Photo(ImageMixin):
 
 
 pre_save.connect(pre_save_photo_receiver, sender=Photo)
-
 pre_save.connect(pre_save_post_receiver, sender=Gallery)

@@ -28,12 +28,12 @@ return false;
         <div class="col-md-6">
             <div class="dance-styles-detail__carousel">
                 <div class="slide__main-view">
-                    <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive">
+                    <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive" alt="{{ cover_photo.name }}">
                 </div>
                 <div class="slider-nav">
                     {% for obj in instance.photo_set.all %}
                     <div class="slide clearfix">
-                        <img class="img-responsive" src="{{ obj.image.url }}">
+                        <img class="img-responsive" src="{{ obj.image.url }}" alt="{{ obj.name }}">
                     </div>
                     {% endfor %}
                 </div>
@@ -49,6 +49,4 @@ return false;
         </div>
     </div>
 </div>
-
-
 {% endblock content %}
