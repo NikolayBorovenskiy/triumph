@@ -17,7 +17,7 @@
             <div class="thumbnail__block">
                 {% video obj.video as video %}
                 <a href="{{ obj.get_absolute_url }}" class="thumbnail">
-                    <img src="{{ video.thumbnail }}" class="img-responsive"/>
+                    <img src="{{ video.thumbnail }}" class="img-responsive" alt="{{ video.title }}"/>
                 </a>
                 {% endvideo %}
                 <a href="{{ obj.get_absolute_url }}" class="reference">

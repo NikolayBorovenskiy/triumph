@@ -47,7 +47,18 @@
     background-color: transparent;
   }
   .navbar-header__logo {
+    background: url(../img/logo.svg) no-repeat;
+    display: block;
+    width: 312px;
+    height: 122px;
+    text-indent: -9999px;
     position: relative;
+
+    a.navbar-brand {
+      display: block; /*для того, чтобы лого было полностью кликабельным*/
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .navbar-header__logo:before {

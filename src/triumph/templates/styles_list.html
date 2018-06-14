@@ -12,7 +12,7 @@
             <div class="dance-style clearfix">
                 <div class="dance-style__image dance-style__image_indent">
                     {% if obj.get_cover_photo %}
-                    <img class="img-responsive" src="{{ obj.get_cover_photo.image.url }}" alt="...">
+                    <img class="img-responsive" src="{{ obj.get_cover_photo.image.url }}" alt="{{ obj.get_cover_photo.name }}">
                     {% else %}
                     <p>no photo</p>
                     {% endif %}

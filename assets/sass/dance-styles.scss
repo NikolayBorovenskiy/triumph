@@ -3,7 +3,7 @@
     padding: 15px;
     background: url(../img/background/dance-style.jpg) 0 0 no-repeat;
     background-size: cover;
-    height: 235px;
+    min-height: 235px;
     transition: border 0.5s ease-out;
   &:hover {
     border: 1px solid #ffca3e;
@@ -49,9 +49,15 @@
     color: #ffca3e;
   }
   .dance-styles-detail__carousel {
+    float: left;
     background-color: #3f3f3f;
     padding: 8px;
   }
+
+  .dance-styles-detail__carousel_indent{
+    margin: 0 20px 20px 0;
+  }
+
   .dance-styles-detail__text {
     line-height: 25px;
   }

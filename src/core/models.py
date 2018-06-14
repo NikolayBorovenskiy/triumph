@@ -30,7 +30,6 @@ class MetaFieldsMixin(models.Model):
 class ImageMixin(models.Model):
     name = models.CharField(verbose_name=u'Название',
                             max_length=50,
-                            editable=False,
                             null=True,
                             blank=True)
     image = models.ImageField(upload_to=upload_location,

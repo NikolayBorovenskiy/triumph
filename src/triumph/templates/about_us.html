@@ -15,7 +15,7 @@
     <div class="about__gallery">
         {% for obj in instance.photo_set.all %}
         <div class="gallery__instance">
-            <img class="img-thumbnail" src="{{ obj.image.url }}" alt="">
+            <img class="img-thumbnail" src="{{ obj.image.url }}" alt="{{ obj.name }}">
         </div>
         {%cycle "" "" "" "" "</div><div class='about__gallery'>" %}
         {% endfor %}
@@ -31,7 +31,7 @@
             <div class="block-avatar">
                 <div class="block-avatar__photo_wrapper">
                     <div class="block-avatar__photo">
-                        <img class="img-responsive" src="{{ obj.avatar.url }}" alt="...">
+                        <img class="img-responsive" src="{{ obj.avatar.url }}" alt="{{ obj.last_name }}">
                     </div>
                 </div>
                 <div class="block-avatar__decor">
@@ -70,11 +70,12 @@
             {% for obj in instance.hall.image_set.all %}
                 <div class="col-sm-6 dance-hall__gallery_indent">
                     <div class="gallery__image">
-                        <img class="img-responsive" src="{{ obj.image.url }}" alt="">
+                        <img class="img-responsive" src="{{ obj.image.url }}" alt="{{ obj.name }}">
                     </div>
                 </div>
             {%cycle "" "</div><div class='row'>" %}
             {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock content %}
