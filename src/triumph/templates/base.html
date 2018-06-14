@@ -11,10 +11,10 @@
 <meta name="theme-color" content="#ffffff">
 
 <title>
-    {% block head_title %}Школа спортивного танца «Триумф» {% endblock head_title %}
+    {% block head_title %}{{ seo.title }} {% endblock head_title %}
 </title>
-<meta name="description" content="Школа спортивного танца «Триумф» — известная школа танцев в Харькове. Танцы для каждого. Широкое расписание. Профессиональные преподаватели. Удобное расположение в центре города. Звоните и присоеденяйтесь! (067)256-54-26. С танцем по жизни!">
-<meta name="keywords" content="школа танцев, клуб танцев, харьков, в харькове, харьковская, триумф, ирина балагула, контемн, детский танец, танцы для детей, бальные танцы, хип-хоп, политех, хпи, НТУ 'ХПИ'"/>
+<meta name="description" content="{{ seo.description }}">
+<meta name="keywords" content="{{ seo.key_words }}"/>
 <meta name="author" content="Nikolay Borovenskiy">
 {% block styles %}
 {% endblock %}
@@ -82,7 +82,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <h1 class="navbar-header__logo clearfix" id="logo">
-                                <a class="navbar-brand" href="{% url 'home' %}">Школа бального танца Триумф</a>
+                                <a class="navbar-brand" href="{% url 'home' %}">{{ seo.h1 }}</a>
                             </h1>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse" aria-expanded="true">

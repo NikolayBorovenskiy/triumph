@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'styles',
     'school',
     'timetable',
-    'attainments'
+    'attainments',
+    'seo',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -109,6 +110,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "school.context_processors.school_contacts",
                 'triumph.context_processors.google_analytics',
+                'seo.seo_processors.seo_optimisation',
             ),
             'libraries': {},
             'builtins': [
