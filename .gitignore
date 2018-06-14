@@ -83,3 +83,10 @@ target/
 !**/static/vendor/**/dist/
 src/triumph/static/build/
 src/triumph/static/img/
+src/triumph/static/vendor/
+src/triumph/static/ckeditor/
+src/triumph/static/el-pagination/
+src/triumph/static/users/
+include/
+lib/
+local/
