@@ -110,7 +110,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "school.context_processors.school_contacts",
                 'triumph.context_processors.google_analytics',
-                'seo.seo_processors.seo_optimisation',
             ),
             'libraries': {},
             'builtins': [
