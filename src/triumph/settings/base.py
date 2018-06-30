@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'school',
     'timetable',
     'attainments',
-    'seo',
 ]
 
 AUTH_USER_MODEL = 'users.User'
