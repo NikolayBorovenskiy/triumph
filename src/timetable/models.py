@@ -1,4 +1,6 @@
 from django.db import models
+
+from core.models import SEOMixin
 from school.models import Coach
 
 DAYS_OF_WEEK = (
@@ -12,12 +14,18 @@ DAYS_OF_WEEK = (
 )
 
 
+class SEOScheduleTotal(SEOMixin):
+    """
+    SEO as total item for all galleries
+    """
+
+
 class Days(models.Model):
     title = models.CharField(max_length=12, choices=DAYS_OF_WEEK)
-    
+
     def __unicode__(self):
         return '{}'.format(self.title)
-    
+
     def __str__(self):
         return '{}'.format(self.title)
 
@@ -27,13 +35,13 @@ class Room(models.Model):
     level = models.CharField(verbose_name=u'Этаж', max_length=255, blank=True,
                              null=True)
     number = models.CharField(verbose_name=u'Номер комнаты', max_length=255)
-    
+
     def __unicode__(self):
         return '{0} {1}'.format(self.name, self.number)
-    
+
     def __str__(self):
         return '{0} {1}'.format(self.name, self.number)
-    
+
     class Meta:
         verbose_name_plural = u"Комнаты"
 
@@ -48,13 +56,13 @@ class Schedule(models.Model):
         Days, related_name='rest_schedule', verbose_name=u'Выходные дни')
     start = models.TimeField(verbose_name=u"Начало занятий")
     end = models.TimeField(verbose_name=u"Конец занятий")
-    
+
     def __unicode__(self):
         return '{0}, {1}'.format(self.title, self.room)
-    
+
     def __str__(self):
         return '{0}, {1}'.format(self.title, self.room)
-    
+
     class Meta:
         verbose_name_plural = u"Расписания"
 
@@ -84,11 +92,11 @@ class Event(models.Model):
         ('#FFA726', u'оранжевый'),
         ('#FF7043', u'глубоко оранжевый'), ('#8D6E63', u'желтый'),
         ('#8D6E63', u'коричневый'), ('#78909C', u'серый')), )
-    
+
     def get_day(self):
         available_days = [day.title for day in self.day.all()]
-        
+
         return u'{}'.format(', '.join(available_days))
-    
+
     class Meta:
         verbose_name_plural = u"Занятия"

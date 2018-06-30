@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Style
+from .models import Style, SEOStyleTotal
 
 
 def styles_detail(request, slug=None):
@@ -14,7 +14,11 @@ def styles_detail(request, slug=None):
     context = {
         'title': instance.title,
         'instance': instance,
-        'cover_photo': cover_photo[0]
+        'cover_photo': cover_photo[0],
+        'browser_title': instance.browser_title,
+        'h1': instance.h1,
+        'keywords': instance.key_words,
+        'head_description': instance.head_description,
     }
 
     return render(request, "styles_detail.html", context)
@@ -30,9 +34,13 @@ def styles_list(request):
         queryset = paginator.page(1)
     except EmptyPage:
         queryset = paginator.page(paginator.num_pages)
+    seo = SEOStyleTotal.objects.first()
     context = {
         'object_list': queryset,
-        'title': u'Направления танца'
+        'browser_title': seo.browser_title,
+        'h1': seo.h1,
+        'keywords': seo.key_words,
+        'head_description': seo.head_description,
     }
 
     return render(request, "styles_list.html", context)

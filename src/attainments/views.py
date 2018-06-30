@@ -11,8 +11,11 @@ def attainment_detail(request):
         photo_qs = instance.photo_set.all()
     context = {
         'instance': instance,
-        'title': u'Достижения',
-        'cover_photo': photo_qs[0] if photo_qs else None
+        'cover_photo': photo_qs[0] if photo_qs else None,
+        'browser_title': instance.browser_title,
+        'h1': instance.h1,
+        'keywords': instance.key_words,
+        'head_description': instance.head_description,
     }
     
     return render(request, "attainment_list.html", context)

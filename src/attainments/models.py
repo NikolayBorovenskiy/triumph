@@ -1,11 +1,11 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
-from core.utils import upload_location, cleanhtml
-from ckeditor.fields import RichTextField
-from core.models import ImageMixin
+from core.models import ImageMixin, SEOMixin
+from core.utils import cleanhtml
 
 
-class Attainments(models.Model):
+class Attainments(SEOMixin):
     intro = RichTextField()
     content = RichTextField()
 
@@ -23,10 +23,10 @@ class Photo(ImageMixin):
     attainments = models.ForeignKey(Attainments)
 
     def __unicode__(self):
-        return '{}'.format(self.id)
+        return '{}'.format(self.name)
 
     def __str__(self):
-        return '{}'.format(self.id)
+        return '{}'.format(self.name)
 
 
 class Diploma(ImageMixin):
@@ -35,7 +35,7 @@ class Diploma(ImageMixin):
     attainments = models.ForeignKey(Attainments)
 
     def __unicode__(self):
-        return '{}'.format(self.id)
+        return '{}'.format(self.name)
 
     def __str__(self):
-        return '{}'.format(self.id)
+        return '{}'.format(self.name)

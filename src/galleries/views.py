@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404, render
 
-from .models import Gallery
+from .models import Gallery, SEOGalleryTotal
 
 
 def galleries_detail(request, slug=None):
@@ -14,9 +14,13 @@ def galleries_detail(request, slug=None):
     context = {
         'title': instance.title,
         'instance': instance,
-        'cover_photo': cover_photo[0]
+        'cover_photo': cover_photo[0],
+        'browser_title': instance.browser_title,
+        'h1': instance.h1,
+        'keywords': instance.key_words,
+        'head_description': instance.head_description,
     }
-    
+
     return render(request, "gallery_detail.html", context)
 
 
@@ -32,9 +36,14 @@ def galleries_list(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         queryset = paginator.page(paginator.num_pages)
+
+    seo = SEOGalleryTotal.objects.first()
     context = {
         'object_list': queryset,
-        'title': u'Фотогалерея'
+        'browser_title': seo.browser_title,
+        'h1': seo.h1,
+        'keywords': seo.key_words,
+        'head_description': seo.head_description,
     }
-    
+
     return render(request, "galleries_list.html", context)

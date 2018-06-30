@@ -11,10 +11,10 @@
 <meta name="theme-color" content="#ffffff">
 
 <title>
-    {% block head_title %}{{ seo.title }} {% endblock head_title %}
+    {% block head_title %}{{ browser_title }}{% endblock head_title %}
 </title>
-<meta name="description" content="{{ seo.description }}">
-<meta name="keywords" content="{{ seo.key_words }}"/>
+<meta name="description" content="{{ head_description }}">
+<meta name="keywords" content="{{ keywords }}"/>
 <meta name="author" content="Nikolay Borovenskiy">
 {% block styles %}
 {% endblock %}
@@ -82,7 +82,7 @@
                                 <span class="icon-bar"></span>
                             </button>
                             <h1 class="navbar-header__logo clearfix" id="logo">
-                                <a class="navbar-brand" href="{% url 'home' %}">{{ seo.h1 }}</a>
+                                <a class="navbar-brand" href="{% url 'home' %}">{{ h1 }}</a>
                             </h1>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse" aria-expanded="true">

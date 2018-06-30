@@ -1,22 +1,25 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
+from core.models import ImageMixin, SEOMixin
 from core.utils import upload_location
-from ckeditor.fields import RichTextField
-from core.models import ImageMixin
 
 
-class School(models.Model):
+class School(SEOMixin):
     title = models.CharField(verbose_name=u'Название', max_length=60,
                              default=u'Труимф')
     about = RichTextField()
     promo = RichTextField()
-    
+
+    def has_related_object(self):
+        return hasattr(self, 'contact') and self.car is not None
+
     def __unicode__(self):
         return '{}'.format(self.title)
-    
+
     def __str__(self):
         return '{}'.format(self.title)
-    
+
     class Meta:
         verbose_name_plural = u"Школа"
 
@@ -33,13 +36,13 @@ class Coach(models.Model):
     title = RichTextField()
     quote = RichTextField()
     school = models.ForeignKey(School, blank=True, null=True)
-    
+
     def __unicode__(self):
         return '{} {}'.format(self.last_name, self.first_name)
-    
+
     def __str__(self):
         return '{} {}'.format(self.last_name, self.first_name)
-    
+
     class Meta:
         verbose_name_plural = u"Тренеры"
         ordering = ["id"]
@@ -47,10 +50,10 @@ class Coach(models.Model):
 
 class Photo(ImageMixin):
     school = models.ForeignKey(School)
-    
+
     def __unicode__(self):
         return '{}'.format(self.id)
-    
+
     def __str__(self):
         return '{}'.format(self.id)
 
@@ -58,26 +61,26 @@ class Photo(ImageMixin):
 class DanceHall(models.Model):
     description = RichTextField()
     school = models.OneToOneField(School, related_name='hall')
-    
+
     def get_school(self):
         return u'{}'.format(self.school.title)
-    
+
     def __unicode__(self):
         return '{}'.format(self.id)
-    
+
     def __str__(self):
         return '{}'.format(self.id)
-    
+
     class Meta:
         verbose_name_plural = u"Танцевальный зал"
 
 
 class Image(ImageMixin):
     dance_hall = models.ForeignKey(DanceHall)
-    
+
     def __unicode__(self):
         return '{}'.format(self.id)
-    
+
     def __str__(self):
         return '{}'.format(self.id)
 
@@ -87,12 +90,12 @@ class Contact(models.Model):
     address = models.CharField(verbose_name=u'Адресс', max_length=255)
     phones = models.CharField(verbose_name=u'Телефоны', max_length=255)
     work_time = models.CharField(verbose_name=u'Режим работы', max_length=255)
-    
+
     def __unicode__(self):
         return self.address
-    
+
     def __str__(self):
         return self.address
-    
+
     class Meta:
         verbose_name_plural = u"Контакты"
