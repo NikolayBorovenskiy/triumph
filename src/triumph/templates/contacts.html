@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block jquery %}
-    var image = '/static/img/map_icon.png';
+    var icon = {
+        url: '/static/img/google-maps-pin-green.png',
+        scaledSize: new google.maps.Size(30, 50)
+    }
     var $container = $('#map');
     $container.height($container.width()*0.7 + 'px');
 
@@ -28,7 +31,7 @@
                 position: results[0].geometry.location,
                 map: map,
                 title: 'Танцевальная школа "Триумф"',
-                icon: image
+                icon: icon
             });
           } else {
             alert('Geocode was not successful for the following reason: ' + status);

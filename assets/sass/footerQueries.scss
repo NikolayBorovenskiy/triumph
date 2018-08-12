@@ -5,12 +5,7 @@
     .footer__address{
       float: none;
     }
-    .address__phones{
-      float: left;
-    }
-    .address__address{
-      float: right;
-    }
+
 
     .footer__copywright{
       @include clearfix;

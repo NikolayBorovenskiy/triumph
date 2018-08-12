@@ -16,6 +16,7 @@
 <meta name="description" content="{{ head_description }}">
 <meta name="keywords" content="{{ keywords }}"/>
 <meta name="author" content="Nikolay Borovenskiy">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 {% block styles %}
 {% endblock %}
 {% if debug %}
@@ -226,6 +227,7 @@
                             <address class="footer__address">
                                 <div class="address clearfix">
                                     <div class="address__phones">
+                                        <i class="material-icons material-icons_indent">phone</i>
                                         <ul class="list">
                                             {% for phone in contacts.phones %}
                                             <li>{{ phone }}</li>
@@ -233,6 +235,7 @@
                                         </ul>
                                     </div>
                                     <div class="address__address address_ml32">
+                                        <i class="material-icons material-icons_indent">room</i>
                                         <ul class="list">
                                             {% for obj in contacts.address %}
                                             <li>{{ obj }}</li>

@@ -85,7 +85,7 @@ class Image(ImageMixin):
         return '{}'.format(self.id)
 
 
-class Contact(models.Model):
+class Contact(SEOMixin):
     school = models.OneToOneField(School, related_name='contact')
     address = models.CharField(verbose_name=u'Адресс', max_length=255)
     phones = models.CharField(verbose_name=u'Телефоны', max_length=255)

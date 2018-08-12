@@ -22,38 +22,25 @@
       z-index: 2;
     }
   }
+  .address{
+    display: flex;
+    justify-content: flex-end;
+  }
   .footer__address {
     margin-bottom: 0;
-    float: right;
   }
   .address__phones, .address__address {
     display: inline-block;
     vertical-align: top;
   }
-  .address__phones{
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      background: url(../img/tel.png) 0 0 no-repeat;
-      width: 15px;
-      height: 20px;
-      right: 110%;
-      z-index: 2;
-    }
-  }
+  .address__phones,
   .address__address{
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      background: url(../img/pointer.png) 0 0 no-repeat;
-      width: 15px;
-      height: 20px;
-      right: 110%;
-      z-index: 2;
-    }
+    display: flex;
   }
+  .material-icons_indent{
+    margin-right: 6px;
+  }
+
   .address_ml32 {
     margin-left: 32px;
   }

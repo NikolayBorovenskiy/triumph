@@ -28,10 +28,10 @@ def contacts_list(request):
         instance = None
     context = {
         'instance': instance.contact,
-        'browser_title': instance.browser_title,
-        'h1': instance.h1,
-        'keywords': instance.key_words,
-        'head_description': instance.head_description,
+        'browser_title': instance.contact.browser_title,
+        'h1': instance.contact.h1,
+        'keywords': instance.contact.key_words,
+        'head_description': instance.contact.head_description,
     }
 
     return render(request, "contacts.html", context)
