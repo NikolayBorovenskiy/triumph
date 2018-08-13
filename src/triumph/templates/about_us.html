@@ -17,7 +17,7 @@
         {% endfor %}
     </div>
 </section>
-<section class="coaches section_indent">
+<section itemscope itemtype="http://schema.org/Person" class="coaches section_indent">
     <div class="block-content__title block-content__title_indent">
         <h2>Наши тренеры</h2>
     </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="block-avatar__decor">
-                    <span class="fontsforweb_fontid_6771">{{ obj.first_name }} {{ obj.last_name }}</span>
+                    <span itemprop="name" class="fontsforweb_fontid_6771">{{ obj.first_name }} {{ obj.last_name }}</span>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                     <!--<h4 class="fontsforweb_fontid_6771">{{ obj.first_name }} {{ obj.last_name }}</h4>-->
                 <!--</div>-->
                 <div class="list-description__title list-description__title_indent">
-                    {{ obj.title | safe }}
+                    <span itemprop="jobTitle">{{ obj.title | safe }}</span>
                 </div>
                 <div class="list-description__quote">
                     {{ obj.quote | safe }}

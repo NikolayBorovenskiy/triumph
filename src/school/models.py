@@ -87,15 +87,18 @@ class Image(ImageMixin):
 
 class Contact(SEOMixin):
     school = models.OneToOneField(School, related_name='contact')
-    address = models.CharField(verbose_name=u'Адресс', max_length=255)
+    country = models.CharField(verbose_name=u'Страна', max_length=255)
+    city = models.CharField(verbose_name=u'Город', max_length=255)
+    street = models.CharField(verbose_name=u'Улица', max_length=255)
+    postcode = models.CharField(verbose_name=u'Почтовый индекс', max_length=255)
     phones = models.CharField(verbose_name=u'Телефоны', max_length=255)
     work_time = models.CharField(verbose_name=u'Режим работы', max_length=255)
 
     def __unicode__(self):
-        return self.address
+        return "{}, {}, {}".format(self.country, self.city, self.street)
 
     def __str__(self):
-        return self.address
+        return "{}, {}, {}".format(self.country, self.city, self.street)
 
     class Meta:
         verbose_name_plural = u"Контакты"

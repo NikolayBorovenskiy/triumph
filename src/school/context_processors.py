@@ -8,7 +8,10 @@ def school_contacts(request):
         contacts = school_queryset[0].contact
         context = {
             'school': contacts.school.title,
-            'address': contacts.address.split(','),
+            'country': contacts.country,
+            'city': contacts.city,
+            'street': contacts.street,
+            'postcode': contacts.postcode,
             'phones': contacts.phones.split(','),
         }
 

@@ -42,12 +42,21 @@ class DanceHallModelAdmin(admin.ModelAdmin):
 
 
 class ContactModelAdmin(admin.ModelAdmin):
-    list_display = ["address", "phones"]
+    list_display = ['country', 'city', 'street', "phones"]
 
     fieldsets = [
         ('SEO', {'fields': [
             'browser_title', 'h1', 'key_words', 'head_description']}),
-        (u'Основные', {'fields': ['address', 'phones', 'work_time']}),
+        (u'Основные', {'fields':
+            [
+                'country',
+                'city',
+                'street',
+                'postcode',
+                'phones',
+                'work_time'
+            ]
+        }),
     ]
 
     class Meta:
