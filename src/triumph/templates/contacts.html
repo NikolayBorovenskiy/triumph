@@ -22,9 +22,11 @@
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     (function codeAddress() {
-        var address = '{{ instance.address }}';
+        var country = '{{ contacts.country }}',
+            city = '{{ contacts.city }}',
+            street = '{{ contacts.street }}';
+        var address = country + ' ' + city + ' ' + street;
         geocoder.geocode( { 'address': address}, function(results, status) {
-          console.log(results);
           if (status == 'OK') {
             map.setCenter(results[0].geometry.location);
             var marker = new google.maps.Marker({

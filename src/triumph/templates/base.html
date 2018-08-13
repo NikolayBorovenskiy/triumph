@@ -276,13 +276,8 @@
 
 <script>
     $(document).ready(function() {
-        {%
-            block
-            jquery %
-        }
-        {%
-            endblock %
-        }
+        {% block jquery %}
+        {% endblock %}
     });
 </script>
 </body>
