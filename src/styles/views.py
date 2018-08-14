@@ -12,7 +12,7 @@ def styles_detail(request, slug=None):
     else:
         cover_photo = instance.photo_set.all()
     context = {
-        'title': instance.title if not instance.subtitle else f"{instance.title} ({instance.subtitle})",
+        'title': instance.title if not instance.subtitle else "%s (%s)" % (instance.title, instance.subtitle),
         'instance': instance,
         'cover_photo': cover_photo[0] if cover_photo else None,
         'browser_title': instance.browser_title,
