@@ -1,104 +1,167 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-	<loc>http://www.triumph-school.com/</loc>
-	<lastmod>2017-12-11T19:06:04+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>http://www.triumph-school.com/</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/school/about-us</loc>
-	<lastmod>2017-12-11T19:06:05+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/school/about-us</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/</loc>
-	<lastmod>2017-12-11T19:06:06+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/attainments</loc>
-	<lastmod>2017-12-11T19:06:06+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>http://www.triumph-school.com/attainments</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/timetable</loc>
-	<lastmod>2017-12-11T19:06:07+01:00</lastmod>
-	<priority>1.0</priority>
+  <loc>http://www.triumph-school.com/timetable</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/school/contacts</loc>
-	<lastmod>2017-12-11T19:06:08+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/school/contacts</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/balnye-tantsy</loc>
-	<lastmod>2017-12-11T19:06:08+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/balnye-tantsy-detskaia-gruppa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/khip-khop</loc>
-	<lastmod>2017-12-11T19:06:09+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/balnye-tantsy-vzroslaia-gruppa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/tango</loc>
-	<lastmod>2017-12-11T19:06:10+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/khip-khop-detskaia-gruppa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/kontemp</loc>
-	<lastmod>2017-12-11T19:06:10+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/khip-khop-vzroslaia-gruppa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/streiching</loc>
-	<lastmod>2017-12-11T19:06:11+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/streiching-detskaia-gruppa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/salsa</loc>
-	<lastmod>2017-12-11T19:06:12+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/streiching-vzroslaia-gruppa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/gruppy-dlia-detei</loc>
-	<lastmod>2017-12-11T19:06:13+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/tango</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/dance-styles/postanovka-tantsa-k-torzhestvu</loc>
-	<lastmod>2017-12-11T19:06:13+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/kontemp</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/news/</loc>
-	<lastmod>2017-12-11T19:06:15+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/salsa</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/galleries/</loc>
-	<lastmod>2017-12-11T19:06:15+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/postanovka-tantsa-k-torzhestvu-dlia-detei</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/videos/</loc>
-	<lastmod>2017-12-11T19:06:16+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/dance-styles/postanovka-tantsa-k-torzhestvu-dlia-vzroslykh</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/articles/</loc>
-	<lastmod>2017-12-11T19:06:17+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/news/</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/articles/tantsy-mogut-izmenit-priznaki-stareniia-v-mozge</loc>
-	<lastmod>2017-12-11T19:06:18+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/galleries/</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-	<loc>http://www.triumph-school.com/articles/kak-tantsy-pomogaiut-vashemu-mozgu</loc>
-	<lastmod>2017-12-11T19:06:18+01:00</lastmod>
-	<priority>0.8</priority>
+  <loc>http://www.triumph-school.com/videos/</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
+<url>
+  <loc>http://www.triumph-school.com/articles/</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/narodnyi-steb</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/s-tantsem-po-zhizni</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/bugi-vugi</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/pervye-udachnye-shagi-na-turnire-v-italii</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/bolgariia-gretsiia</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/italiia-chempionat-mira-2011-doroga-k-pobede</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/dostizheniia</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/videos/tak-vse-nachinalos</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/articles/tantsy-mogut-izmenit-priznaki-stareniia-v-mozge</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://www.triumph-school.com/articles/kak-tantsy-pomogaiut-vashemu-mozgu</loc>
+  <lastmod>2018-08-14T11:24:09+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
