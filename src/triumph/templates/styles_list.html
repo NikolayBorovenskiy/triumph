@@ -15,14 +15,22 @@
                 </div>
                 <div class="dance-style__content">
                     <h3 class="fontsforweb_fontid_6771"><span itemprop="name">{{ obj.title }}</span></h3>
+                    {% if obj.subtitle %}
                     <h5 class="fontsforweb_fontid_6771"><span>{{ obj.subtitle }}</span></h5>
+                    {% endif %}
                     <p class="list-description__content"><span itemprop="description">{{ obj.content | striptags | safe | truncatechars:230 }}</span></p>
                 </div>
             </div>
         </a>
     </div>
-    {%cycle "" "</div><div class='row'>" %}
+    {%cycle "" "
+</div>
+<div class='row'>" %}
     {% endfor %}
 </div>
 {% include "el_pagination/show_pages.html" %}
 {% endblock content %}
+
+
+
+
