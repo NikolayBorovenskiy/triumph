@@ -16,6 +16,12 @@ class SEOStyleTotal(SEOMixin):
 
 class Style(SEOMixin):
     title = models.CharField(verbose_name=u'Заголовок', max_length=500)
+    subtitle = models.CharField(
+        null=True,
+        blank=True,
+        verbose_name=u'Подзаголовок',
+        max_length=500
+    )
     content = RichTextField()
     slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
 

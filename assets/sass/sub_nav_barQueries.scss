@@ -4,15 +4,15 @@
     nav {
       padding: 21px 12px;
     }
-    aside.sidebar{
+    aside.sidebar {
       background-color: rgba(27, 27, 27, 0.55);
     }
     aside {
       padding: 0;
-      .sidebar-nav__list{
-        li{
+      .sidebar-nav__list {
+        li {
           height: 30px;
-          a{
+          a {
             padding: 5px;
           }
           background-color: inherit;
@@ -39,6 +39,21 @@
         }
       }
     }
+
+    .navbar-nav {
+      &>li{
+        float: none;
+      }
+      display: block;
+      .open {
+        .dropdown-menu {
+          float: none;
+          columns: 1;
+          background-color: rgba(39, 39, 39, .5);
+          position: relative;
+        }
+      }
+    }
   }
   .sub-navigation__nav_up {
     margin: 0 !important;
@@ -47,15 +62,23 @@
 
 /* Small phones: from 0 to 767px */
 @media only screen and (max-width: 767px) {
-  .sub-navigation__nav{
+  .sub-navigation__nav {
     background-color: rgba(255, 202, 62, 0.75);
     ul {
       columns: 1;
-      li{
-        a{
+      li {
+        a {
           color: #0f0f0f;
         }
       }
     }
+
+    .navbar-nav {
+      display: block;
+      .dropdown-menu {
+        background-color: rgba(39, 39, 39, .5);
+      }
+    }
+
   }
 }

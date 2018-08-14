@@ -109,12 +109,35 @@
                         <div class="row-height">
                             <div class="col-md-12 col-sm-height col-sm-top col-sm-8 col-sm-push-4 col-md-push-0">
                                 <nav class="sub-navigation__nav sub-navigation__nav_up">
-                                    <ul class="nav">
-                                        <li class='{% is_view view_name="detail" slug="balnye-tantsy" %}'>
-                                            <a href="{% url 'styles:detail' slug='balnye-tantsy' %}">Бальные танцы</a>
+                                    <ul class="nav navbar-nav">
+                                        <li class='{% is_view view_name="detail" slug="balnye-tantsy" %} dropdown'>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Бальные танцы<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='balnye-tantsy-detskaia-gruppa' %}">Группы для детей</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='balnye-tantsy-vzroslaia-gruppa' %}">Группы для взрослых</a>
+                                                </li>
+                                            </ul>
                                         </li>
-                                        <li class='{% is_view view_name="detail" slug="khip-khop" %}'>
-                                            <a href="{% url 'styles:detail' slug='khip-khop' %}">Hip-hop</a>
+                                        <li class='{% is_view view_name="detail" slug="khip-khop" %} dropdown'>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hip-hop<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='khip-khop-detskaia-gruppa' %}">Группы для детей</a>
+                                                </li>
+                                                <li><a href="{% url 'styles:detail' slug='khip-khop-vzroslaia-gruppa' %}">Группы для взрослых</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class='{% is_view view_name="detail" slug="streiching" %} dropdown'>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Стрейчинг<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='streiching' %}">Группы для детей</a>
+                                                </li>
+                                                <li><a href="{% url 'styles:detail' slug='streiching' %}">Группы для взрослых</a></li>
+                                            </ul>
                                         </li>
                                         <li class='{% is_view view_name="detail" slug="tango" %}'>
                                             <a href="{% url 'styles:detail' slug='tango' %}">Танго</a>
@@ -122,17 +145,17 @@
                                         <li class='{% is_view view_name="detail" slug="kontemp" %}'>
                                             <a href="{% url 'styles:detail' slug='kontemp' %}">Контемп</a>
                                         </li>
-                                        <li class='{% is_view view_name="detail" slug="streiching" %}'>
-                                            <a href="{% url 'styles:detail' slug='streiching' %}">Стрейчинг</a>
-                                        </li>
                                         <li class='{% is_view view_name="detail" slug="salsa" %}'>
                                             <a href="{% url 'styles:detail' slug='salsa' %}">Сальса</a>
                                         </li>
-                                        <li class='{% is_view view_name="detail" slug="gruppy-dlia-detei" %}'>
-                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei' %}">Группы для детей</a>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="postanovka-tantsa-k-torzhestvu" %}'>
-                                            <a href="{% url 'styles:detail' slug='postanovka-tantsa-k-torzhestvu' %}">Постановка танца к торжеству</a>
+                                        <li class='{% is_view view_name="detail" slug="postanovka-tantsa-k-torzhestvu" %} dropdown'>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Постановка танца к торжеству<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='streiching' %}">Для детей</a>
+                                                </li>
+                                                <li><a href="{% url 'styles:detail' slug='streiching' %}">Для взрослых</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </nav>

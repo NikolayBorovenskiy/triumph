@@ -50,7 +50,7 @@ def is_view(context, view_name=None, namespace=None, output='active', **kwargs):
         return output
     
     if view_name and resolver_match.url_name in view_name:
-        if all(resolver_match.kwargs[k] == kwargs[k] for k in kwargs.keys()):
+        if all(kwargs[k] in resolver_match.kwargs[k] for k in kwargs.keys()):
             return output
     
     if view_name and namespace and resolver_match.url_name in view_name and resolver_match.namespace in namespace.split(

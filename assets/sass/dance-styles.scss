@@ -19,12 +19,16 @@
   .dance-style__content {
     h3 {
       &:hover{
-        color: #e3e3e3;
+        color: #bfbfbf;
         text-decoration: none;
       }
       margin: 0 0 5px 0;
       color: #ffca3e;
       text-decoration: underline;
+    }
+    h5{
+      color: darken(#ffca3e, 30%);
+      font-size: 17px;
     }
   }
 }
@@ -34,10 +38,10 @@
 }
 
 .dance-style_link {
-  color: #e3e3e3;
+  color: #bfbfbf;
   &:hover,
   &:active{
-    color: #e3e3e3;
+    color: #bfbfbf;
     text-decoration: none;
   }
 }
