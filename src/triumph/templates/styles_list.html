@@ -23,9 +23,7 @@
             </div>
         </a>
     </div>
-    {%cycle "" "
-</div>
-<div class='row'>" %}
+    {%cycle "" "</div><div class='row'>" %}
     {% endfor %}
 </div>
 {% include "el_pagination/show_pages.html" %}
