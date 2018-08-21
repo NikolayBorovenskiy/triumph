@@ -18,6 +18,9 @@
                     {% if obj.subtitle %}
                     <h5 class="fontsforweb_fontid_6771"><span>{{ obj.subtitle }}</span></h5>
                     {% endif %}
+                    {% if obj.group %}
+                    <h5 class="fontsforweb_fontid_6771"><span>{{ obj.group }}</span></h5>
+                    {% endif %}
                     <p class="list-description__content"><span itemprop="description">{{ obj.content | striptags | safe | truncatechars:230 }}</span></p>
                 </div>
             </div>
