@@ -24,13 +24,13 @@ class PhotoModelAdmin(admin.ModelAdmin):
 
 
 class StyleModelAdmin(admin.ModelAdmin):
-    list_display = ["title", 'subtitle']
+    list_display = ["title", "subtitle", "group"]
     search_fields = ["title"]
     inlines = [PhotoInLine]
     fieldsets = [
         ('SEO', {'fields': [
             'browser_title', 'h1', 'key_words', 'head_description']}),
-        (u'Основные', {'fields': ['title', 'subtitle', 'content']}),
+        (u'Основные', {'fields': ['title', 'subtitle', 'group', 'content']}),
     ]
 
     class Meta:

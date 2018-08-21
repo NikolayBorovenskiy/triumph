@@ -22,6 +22,12 @@ class Style(SEOMixin):
         verbose_name=u'Подзаголовок',
         max_length=500
     )
+    group = models.CharField(
+        null=True,
+        blank=True,
+        verbose_name=u'Группа',
+        max_length=100
+    )
     content = RichTextField()
     slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
 
