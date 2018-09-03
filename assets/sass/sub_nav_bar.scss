@@ -123,6 +123,9 @@
   .dropdown-submenu:hover > .dropdown-menu {
     //display: block; Disable hover!!!!!
   }
+  .dropdown-submenu > .dropdown-menu.open {
+    display: block;
+  }
   .dropdown-submenu > a:after {
     display: block;
     content: " ";

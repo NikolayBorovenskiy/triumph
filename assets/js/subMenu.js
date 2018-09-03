@@ -1,11 +1,10 @@
 "use strict";
 
 (function($) {
-    // if ($(window).width() < 993) {
-        $('.dropdown-submenu a.dropdown-toggle').on("click", function(e) {
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
+        $('.dropdown-submenu a.dropdown-toggle').on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).parent().siblings().find('ul').removeClass('open');
+            $(this).next('ul').toggleClass('open');
         });
-    // }
 }(window.jQuery));
