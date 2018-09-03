@@ -101,6 +101,7 @@
                     <h3 class="fontsforweb_fontid_6771">С танцем по жизни!</h3>
                 </div>
             </header>
+
             {% block promo %}
             {% endblock %}
             <div class="sub-navigation">
@@ -230,6 +231,17 @@
                                                 </li>
                                                 <li>
                                                     <a href="{% url 'styles:detail' slug='postanovka-tantsa-k-torzhestvu-svadebnyi-tanets' %}">Свадебный танец</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class='{% is_view view_name="detail" slug="khoreografiia" %} dropdown'>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Хореография<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='khoreografiia-dlia-detei' %}">Для детей</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'styles:detail' slug='khoreografiia-dlia-vzroslykh' %}">Для взрослых</a>
                                                 </li>
                                             </ul>
                                         </li>

@@ -25,7 +25,7 @@
   .sub-navigation__nav {
     background-color: rgba(27, 27, 27, 0.55);
     ul {
-      columns: 2;
+      //columns: 2;
       li {
         display: block;
         border-right: none;
@@ -41,7 +41,7 @@
     }
 
     .navbar-nav {
-      &>li{
+      & > li {
         float: none;
       }
       display: block;
@@ -54,6 +54,22 @@
         }
       }
     }
+    .dropdown-submenu:hover > .dropdown-menu {
+      display: none;
+    }
+    .dropdown-menu {
+      & > li {
+        .dropdown-menu {
+          & > li {
+            & > a:hover {
+              background-color: inherit;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
   }
   .sub-navigation__nav_up {
     margin: 0 !important;

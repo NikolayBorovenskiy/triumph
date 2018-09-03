@@ -24,18 +24,20 @@ return false;
 
 {% block content %}
 <div class="dance-styles-detail clearfix">
-    <div class="dance-styles-detail__carousel dance-styles-detail__carousel_indent">
-        <div class="slide__main-view">
-            <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive" alt="{{ cover_photo.name }}">
-        </div>
-        <div class="slider-nav">
-            {% for obj in instance.photo_set.all %}
-            <div class="slide clearfix">
-                <img class="img-responsive" src="{{ obj.image.url }}" alt="{{ obj.name }}">
+    {% if instance.photo_set.all %}
+        <div class="dance-styles-detail__carousel dance-styles-detail__carousel_indent">
+            <div class="slide__main-view">
+                <img id="main-view" src="{{ cover_photo.image.url }}" class="img-responsive" alt="{{ cover_photo.name }}">
             </div>
-            {% endfor %}
+            <div class="slider-nav">
+                {% for obj in instance.photo_set.all %}
+                <div class="slide clearfix">
+                    <img class="img-responsive" src="{{ obj.image.url }}" alt="{{ obj.name }}">
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% endif %}
     <div class="dance-styles-detail__info">
         <div class="dance-styles-detail__title ">
             <h3 class="fontsforweb_fontid_6771">{{ title }}</h3>
