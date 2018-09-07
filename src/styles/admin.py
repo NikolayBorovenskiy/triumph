@@ -37,6 +37,7 @@ class StyleModelAdmin(admin.ModelAdmin):
                             'subtitle',
                             'group',
                             'content',
+                            'image',
                             'sub_style']
                        }),
     ]

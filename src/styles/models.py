@@ -5,7 +5,11 @@ from django.db import models
 from django.db.models.signals import pre_save
 
 from core.models import ImageMixin, SEOMixin
-from core.utils import (pre_save_photo_receiver, pre_save_post_receiver)
+from core.utils import (
+    pre_save_photo_receiver,
+    pre_save_post_receiver,
+    upload_location
+)
 
 
 class SEOStyleTotal(SEOMixin):
@@ -27,6 +31,12 @@ class Style(SEOMixin):
         blank=True,
         verbose_name=u'Группа',
         max_length=100
+    )
+    image = models.ImageField(
+        upload_to=upload_location,
+        verbose_name=u'Промо фотография',
+        null=True,
+        blank=True
     )
     sub_style = models.ForeignKey(
         'self',

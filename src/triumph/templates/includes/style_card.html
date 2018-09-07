@@ -1,7 +1,9 @@
 <a class="dance-style_link" href="{{ style.get_absolute_url }}">
     <div itemscope itemtype="http://schema.org/Product" class="dance-style clearfix">
         <div class="dance-style__image dance-style__image_indent">
-            {% if style.get_cover_photo %}
+            {% if style.image %}
+            <img itemprop="image" class="img-responsive" src="{{ style.image.url }}" alt="{{ style.title }}">
+            {% elif style.get_cover_photo %}
             <img itemprop="image" class="img-responsive" src="{{ style.get_cover_photo.image.url }}" alt="{{ style.get_cover_photo.name }}">
             {% else %}
             <p>no photo</p>
