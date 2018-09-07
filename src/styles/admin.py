@@ -13,6 +13,8 @@ class SEOStyleTotalModelAdmin(admin.ModelAdmin):
 class PhotoInLine(admin.TabularInline):
     model = Photo
 
+class StyleInLine(admin.TabularInline):
+    model = Style
 
 class PhotoModelAdmin(admin.ModelAdmin):
     list_display = ['name', 'get_style']
@@ -26,11 +28,17 @@ class PhotoModelAdmin(admin.ModelAdmin):
 class StyleModelAdmin(admin.ModelAdmin):
     list_display = ["title", "subtitle", "group"]
     search_fields = ["title"]
-    inlines = [PhotoInLine]
+    inlines = [StyleInLine, PhotoInLine]
     fieldsets = [
         ('SEO', {'fields': [
             'browser_title', 'h1', 'key_words', 'head_description']}),
-        (u'Основные', {'fields': ['title', 'subtitle', 'group', 'content']}),
+        (u'Основные', {'fields':
+                           ['title',
+                            'subtitle',
+                            'group',
+                            'content',
+                            'sub_style']
+                       }),
     ]
 
     class Meta:

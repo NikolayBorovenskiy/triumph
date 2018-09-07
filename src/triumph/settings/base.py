@@ -108,6 +108,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "school.context_processors.school_contacts",
+                "school.context_processors.styles_list",
                 'triumph.context_processors.google_analytics',
             ),
             'libraries': {},

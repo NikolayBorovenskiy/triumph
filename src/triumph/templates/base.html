@@ -111,140 +111,26 @@
                             <div class="col-md-12 col-sm-height col-sm-top col-sm-8 col-sm-push-4 col-md-push-0">
                                 <nav class="sub-navigation__nav sub-navigation__nav_up">
                                     <ul class="nav navbar-nav">
-                                        <li class='{% is_view view_name="detail" slug="balnye-tantsy" %} dropdown'>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Бальные танцы<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Бальные</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='balnye-tantsy-balnye-detskaia-gruppa' %}">Группы для детей</a>
+                                        {% for style in styles%}
+                                             <li class='{% is_view view_name="detail" slug=style.slug %} dropdown'>
+                                                <a href="{{ style.get_absolute_url }}"{% if style.style_set.all %}class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"{% endif %}>{{ style.title }}
+                                                    {% if style.style_set.all %}<span class="caret"></span>{% endif %}</a>
+                                                <ul class="dropdown-menu">
+                                                    {% for sub_obj in style.style_set.all %}
+                                                        <li class="menu-item dropdown {% if sub_obj.style_set.all %}dropdown-submenu{% endif %}" >
+                                                            <a href="{{ sub_obj.get_absolute_url }}" class="dropdown-toggle">{{ sub_obj.title }}</a>
+                                                            <ul class="dropdown-menu">
+                                                                {% for sub_obj in sub_obj.style_set.all %}
+                                                                    <li>
+                                                                        <a href="{{ sub_obj.get_absolute_url }}">{{ sub_obj.title }}</a>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
                                                         </li>
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='balnye-tantsy-balnye-vzroslaia-gruppa' %}">Группы для взрослых</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Латиноамериканские</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='balnye-tantsy-latinoamerikanskie-detskaia-gruppa' %}">Группы для детей</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='balnye-tantsy-latinoamerikanskie-vzroslaia-gruppa' %}">Группы для взрослых</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="sovremennye-tantsy" %} dropdown'>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Современные танцы<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Современные</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='sovremennye-tantsy-sovremennye-detskaia-gruppa' %}">Группы для детей</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='sovremennye-tantsy-sovremennye-vzroslaia-gruppa' %}">Группы для взрослых</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hip-hop</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='sovremennye-tantsy-khip-khop-detskaia-gruppa' %}">Группы для детей</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='sovremennye-tantsy-khip-khop-vzroslaia-gruppa' %}">Группы для взрослых</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class='{% is_view view_name="detail" slug="kontemp" %}'>
-                                                    <a href="{% url 'styles:detail' slug='sovremennye-tantsy-kontemp' %}">Контемп</a>
-                                                </li>
-                                                <li class='{% is_view view_name="detail" slug="salsa" %}'>
-                                                    <a href="{% url 'styles:detail' slug='sovremennye-tantsy-salsa' %}">Сальса</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="tango" %}'>
-                                            <a href="{% url 'styles:detail' slug='tango' %}">Танго</a>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="streiching" %}'>
-                                            <a href="{% url 'styles:detail' slug='streiching' %}">Стрейчинг</a>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="gruppy-dlia-detei-" %} dropdown'>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Группы для детей<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Для малышей</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-malyshi-3-goda' %}">3 года</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-malyshi-4-goda' %}">4 года</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Для дошкольников</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-doshkolniki-5-let' %}">5 лет</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                 <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Для школьников</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-shkolniki-6-7-let' %}">6-7 лет</a>
-                                                        </li>
-                                                         <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-shkolniki-8-9-let' %}">8-9 лет</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-shkolniki-10-12-let' %}">10-12 лет</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item dropdown dropdown-submenu">
-                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Для подростков</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="{% url 'styles:detail' slug='gruppy-dlia-detei-podrostki-12-16-let' %}">12-16 лет</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="postanovka-tantsa-k-torzhestvu" %} dropdown'>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Постановка танца к торжеству<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="{% url 'styles:detail' slug='postanovka-tantsa-k-torzhestvu-k-torzhestvu' %}">Танец к торжеству</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{% url 'styles:detail' slug='postanovka-tantsa-k-torzhestvu-svadebnyi-tanets' %}">Свадебный танец</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class='{% is_view view_name="detail" slug="khoreografiia" %} dropdown'>
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Хореография<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="{% url 'styles:detail' slug='khoreografiia-dlia-detei' %}">Для детей</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{% url 'styles:detail' slug='khoreografiia-dlia-vzroslykh' %}">Для взрослых</a>
-                                                </li>
-                                            </ul>
-                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
                                     </ul>
                                 </nav>
                             </div>

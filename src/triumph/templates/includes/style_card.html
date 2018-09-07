@@ -1,0 +1,21 @@
+<a class="dance-style_link" href="{{ style.get_absolute_url }}">
+    <div itemscope itemtype="http://schema.org/Product" class="dance-style clearfix">
+        <div class="dance-style__image dance-style__image_indent">
+            {% if style.get_cover_photo %}
+            <img itemprop="image" class="img-responsive" src="{{ style.get_cover_photo.image.url }}" alt="{{ style.get_cover_photo.name }}">
+            {% else %}
+            <p>no photo</p>
+            {% endif %}
+        </div>
+        <div class="dance-style__content">
+            <h3 class="fontsforweb_fontid_6771"><span itemprop="name">{{ style.title }}</span></h3>
+            {% if style.subtitle %}
+            <h5 class="fontsforweb_fontid_6771"><span>{{ style.subtitle }}</span></h5>
+            {% endif %}
+            {% if style.group %}
+            <h5 class="fontsforweb_fontid_6771"><span>{{ style.group }}</span></h5>
+            {% endif %}
+            <p class="list-description__content"><span itemprop="description">{{ style.content | striptags | safe | truncatechars:230 }}</span></p>
+        </div>
+    </div>
+</a>

@@ -33,8 +33,8 @@ def styles_detail(request, slug=None):
 
 
 def styles_list(request):
-    queryset_list = Style.objects.order_by('id')
-    paginator = Paginator(queryset_list, 16)
+    queryset_list = Style.objects.filter(sub_style__isnull=True).order_by('id')
+    paginator = Paginator(queryset_list, 8)
     page = request.GET.get('page')
     try:
         queryset = paginator.page(page)

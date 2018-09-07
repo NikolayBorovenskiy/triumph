@@ -46,6 +46,20 @@ return false;
             {{ instance.content|safe }}
         </p>
     </div>
-
+    {% if instance.style_set.all %}
+        <div class="dance-styles-detail__substyles">
+            <div class="dance-styles-detail__title ">
+                <h3 class="fontsforweb_fontid_6771">Направления</h3>
+            </div>
+            <div class="row">
+                {% for obj in instance.style_set.all %}
+                <div class="col-sm-6 dance-style_indent">
+                    {% include 'includes/style_card.html' with style=obj %}
+                </div>
+                {%cycle "" "</div><div class='row'>" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 </div>
 {% endblock content %}

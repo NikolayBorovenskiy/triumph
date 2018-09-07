@@ -28,6 +28,12 @@ class Style(SEOMixin):
         verbose_name=u'Группа',
         max_length=100
     )
+    sub_style = models.ForeignKey(
+        'self',
+        blank=True,
+        null=True,
+        verbose_name=u'Родительский стиль'
+    )
     content = RichTextField()
     slug = models.SlugField(editable=False, unique=True, null=True, blank=True)
 
