@@ -20,5 +20,6 @@ def school_contacts(request):
 
 
 def styles_list(request):
-    queryset_list = Style.objects.filter(sub_style__isnull=True).order_by('id')
+    queryset_list = Style.objects.filter(sub_style__isnull=True).order_by(
+        'order')
     return {'styles': queryset_list}

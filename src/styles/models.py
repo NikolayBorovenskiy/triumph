@@ -32,6 +32,7 @@ class Style(SEOMixin):
         verbose_name=u'Группа',
         max_length=100
     )
+    order = models.IntegerField(default=0, verbose_name=u'Порядковы номер')
     image = models.ImageField(
         upload_to=upload_location,
         verbose_name=u'Промо фотография',
