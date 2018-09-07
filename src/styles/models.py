@@ -67,6 +67,7 @@ class Style(SEOMixin):
 
     class Meta:
         verbose_name_plural = u"Танцевальные направления"
+        ordering = ['order']
 
 
 class Photo(ImageMixin):
