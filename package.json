@@ -42,7 +42,7 @@
     "gulp-rename": "latest",
     "gulp-sass": "latest",
     "gulp-uglify": "latest",
-    "lodash": "~3.10.0",
+    "lodash": "~4.17.19",
     "sass-loader": "latest",
     "style-loader": "latest",
     "svg-inline-loader": "latest",
