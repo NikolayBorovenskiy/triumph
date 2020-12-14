@@ -1,17 +1,25 @@
 # coding: utf-8
 
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.admin import register
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-from users import models as m
-from users import forms as f
+from users import forms as f, models as m
 
 
 @admin.register(m.User)
-class UserAdmin(UserAdmin):
+class UserAdmin(BaseUserAdmin):
     form = f.UserChangeForm
     add_form = f.UserCreationForm
 
-    # override fieldsets if new fields were added
-    # fieldsets = ...
+    # The fields to be used in displaying the User model.
+    # These override the definitions on the base UserAdmin
+    # that reference specific fields on auth.User.
+    list_display = ('email', 'is_admin')
+    list_filter = ('is_admin',)
+    fieldsets = (
+        (None, {'fields': ('email', 'username')}),
+        ('Permissions', {'fields': ('is_admin',)}),
+    )
+    search_fields = ('email',)
+    ordering = ('email',)
+    filter_horizontal = ()

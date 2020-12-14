@@ -1,25 +1,32 @@
 # coding: utf-8
 
-import dj_database_url
+import socket
+import typing
 
 from triumph.settings.base import *
 
 DEBUG = True
 
+INTERNAL_IPS = ['127.0.0.1', '10.0.2.2']
+
+
+def define_internal_docker_ips(ips_range: int = 20) -> typing.Generator:
+    """Only docker specific"""
+    _, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    for ip in ips:
+        for i in range(ips_range):
+            yield ip[:-1] + str(i)
+
+
 if DEBUG:
     INSTALLED_APPS.append('debug_toolbar')
     MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'triumph',
-        'USER': 'triumphuser',
-        'PASSWORD': 'acmilan86',
-        'HOST': 'localhost',
-        'PORT': '',
-    },
-}
+    LOGGING['loggers'][''] = {
+        'handlers': ['stdout'],
+        'level': 'DEBUG',
+    }
+    possible_docker_ips = list(define_internal_docker_ips())
+    INTERNAL_IPS.extend(possible_docker_ips)
 
 CACHES = {
     'default': {
@@ -28,8 +35,9 @@ CACHES = {
     }
 }
 
+ADMINS = (('Nikolay', 'nikolay.borovenskiy@gmail.com'),)
+DEFAULT_ADMIN_PASSWORD = 'admin'
+
 ALLOWED_HOSTS = ['*', ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-INTERNAL_IPS = ['127.0.0.1']

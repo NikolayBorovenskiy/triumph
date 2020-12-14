@@ -11,9 +11,9 @@ MANAGERS = ()
 ALLOWED_HOSTS = ['188.226.142.203', 'triumph-school.com',
                  'www.triumph-school.com']
 
-DATABASES = {
-    'default': dj_database_url.parse(e.get('DJANGO_DB')),
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(e.get('DJANGO_DB')),
+# }
 
 # Wrap loaders in cached loader
 TEMPLATES[0]['OPTIONS']['loaders'] = [

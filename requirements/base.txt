@@ -1,23 +1,25 @@
-celery
-dj-database-url
-django
-django-allauth
-django-ckeditor
-django-cleanup
-django-cmstemplates
-django-codemirror-widget
-django-el-pagination
-django-widget-tweaks
-django-embed-video
-easy-thumbnails
-envvars
-hiredis
-ipython
-lxml  # libxml2-dev libxslt-dev
-pillow  # libjpeg8 libjpeg8-dev libfreetype6 libfreetype6-dev zlib1g-dev
-psycopg2  # libpq-dev
-pymorphy2-dicts-ru
-pymorphy2[fast]
+celery>=4.1,<4.2
+dj-database-url>=0.4,<0.5
+django>=1.11,<1.12
+django-allauth>=0.33,<0.34
+django-ckeditor>=5.3,<5.4
+django-cleanup>=1.0,<1.1
+django-cmstemplates>=0.3,<0.4
+django-codemirror-widget>=0.4,<0.5
+django-el-pagination>=3.1,<3.2
+django-widget-tweaks>=1.4,<1.5
+django-embed-video>=1.1,<1.2
+easy-thumbnails>=2.4,<2.5
+envvars>=0.3,<0.4
+hiredis>=0.2,<0.3
+ipython>=6.2,<6.3
+lxml>=4.0,<4.1  # libxml2-dev libxslt-dev
+pillow>=4.2,<4.3  # libjpeg8 libjpeg8-dev libfreetype6 libfreetype6-dev zlib1g-dev
+psycopg2>=2.7,<2.8  # libpq-dev
+pymorphy2-dicts-ru>=2.4,<2.5
+pymorphy2>=0.8,<0.9
 pytils
 redis
-rules
+rules>=1.2,<1.3
+vishap>=0.1,<0.2
+unidecode>=0.4,<0.5

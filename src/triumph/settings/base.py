@@ -7,7 +7,6 @@ import os
 import sys
 
 import envvars as e
-
 from django.contrib.messages import constants as messages
 
 PROJECT_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
@@ -28,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    
+
     # third-party apps
     'allauth',
     'allauth.account',
@@ -39,7 +38,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'django_cleanup',
     'rules.apps.AutodiscoverRulesConfig',
-    
+
     # project apps
     'core',
     'users',
@@ -69,6 +68,18 @@ MIDDLEWARE = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
+
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('SQL_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv(
+            'SQL_DATABASE', os.path.join(PROJECT_DIR, 'db.sqlite3')),
+        'USER': os.getenv('SQL_USER', 'user'),
+        'PASSWORD': os.getenv('SQL_PASSWORD', 'password'),
+        'HOST': os.getenv('SQL_HOST', 'localhost'),
+        'PORT': os.getenv('SQL_PORT', '5432'),
+    }
+}
 
 X_FRAME_OPTIONS = 'DENY'
 
@@ -114,7 +125,7 @@ TEMPLATES = [
             'libraries': {},
             'builtins': [
                 'rules.templatetags.rules',
-                
+
                 'core.templatetags.builtins',
                 'el_pagination.templatetags.el_pagination_tags',
             ],
@@ -244,7 +255,6 @@ LOGGING = {
         },
     }
 }
-
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }

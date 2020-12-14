@@ -11,13 +11,13 @@ def home(request):
         instance = school_queryset[0]
     else:
         instance = None
-    context = {
-        'instance': instance,
-        'browser_title': instance.browser_title,
-        'h1': instance.h1,
-        'keywords': instance.key_words,
-        'head_description': instance.head_description,
-    }
+    context = {}
+    if instance:
+        context['instance'] = instance
+        context['browser_title'] = instance.browser_title
+        context['h1'] = instance.h1
+        context['keywords'] = instance.key_words
+        context['head_description'] = instance.head_description
     return render(request, 'home.html', context)
 
 
